@@ -2,13 +2,12 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {
-			fontFamily: {
-				sans: ['Lato', 'sans-serif'],
-				mono: ['Berkeley Mono', 'monospace'],
-				noto: ['Noto Sans', 'sans-serif'],
-			},
+		fontFamily: {
+			sans: ['Lato', 'sans-serif'],
+			mono: ['Berkeley Mono', 'monospace'],
+			noto: ['Noto Sans', 'sans-serif'],
 		},
+		extend: {},
 	},
 	plugins: [],
 }
