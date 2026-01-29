@@ -1,0 +1,235 @@
+<svg width="900" height="400" viewBox="0 0 900 400" class="w-full max-w-5xl">
+	<defs>
+		<!-- Very subtle paper texture -->
+		<filter id="paper">
+			<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise" seed="5"/>
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.4" xChannelSelector="R" yChannelSelector="G"/>
+		</filter>
+	</defs>
+
+	<g transform="rotate(-5 450 200)">
+		<!-- Soft shadow -->
+		<ellipse cx="450" cy="310" rx="420" ry="35" fill="#3a3a3a" opacity="0.15"/>
+
+		<!-- Keyboard body - beige/cream VT100 style -->
+		<rect x="40" y="80" width="840" height="235" rx="6" fill="#e8dcc8" stroke="#a89878" stroke-width="3" stroke-linecap="round" filter="url(#paper)"/>
+
+		<!-- Dark inset area for keys -->
+		<rect x="60" y="100" width="800" height="195" rx="4" fill="#2a2520" stroke="#1a1510" stroke-width="2" opacity="0.9"/>
+
+		<!-- Main keyboard section -->
+		<g class="main-keyboard">
+			<!-- Row 1 - Top row with ESC and numbers -->
+			<g class="key-row">
+				<!-- ESC -->
+				<rect x="80" y="115" width="50" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="105" y="137" font-family="Berkeley Mono, monospace" font-size="10" fill="#d4c4a8" text-anchor="middle" font-weight="600">ESC</text>
+
+				<!-- Numbers -->
+				<rect x="145" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="162.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">1</text>
+
+				<rect x="190" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="207.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">2</text>
+
+				<rect x="235" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="252.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">3</text>
+
+				<rect x="280" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="297.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">4</text>
+
+				<rect x="325" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="342.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">5</text>
+
+				<rect x="370" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="387.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">6</text>
+
+				<rect x="415" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="432.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">7</text>
+
+				<rect x="460" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="477.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">8</text>
+
+				<rect x="505" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="522.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">9</text>
+
+				<rect x="550" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="567.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">0</text>
+
+				<rect x="595" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="612.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">-</text>
+
+				<rect x="640" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="657.5" y="137" font-family="Berkeley Mono, monospace" font-size="13" fill="#d4c4a8" text-anchor="middle" font-weight="600">=</text>
+			</g>
+
+			<!-- Row 2 - QWERTY -->
+			<g class="key-row">
+				<rect x="80" y="160" width="50" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="105" y="182" font-family="Berkeley Mono, monospace" font-size="9" fill="#d4c4a8" text-anchor="middle" font-weight="600">TAB</text>
+
+				<rect x="140" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="157.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">Q</text>
+
+				<rect x="185" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="202.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">W</text>
+
+				<rect x="230" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="247.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">E</text>
+
+				<rect x="275" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="292.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">R</text>
+
+				<rect x="320" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="337.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">T</text>
+
+				<rect x="365" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="382.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">Y</text>
+
+				<rect x="410" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="427.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">U</text>
+
+				<rect x="455" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="472.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">I</text>
+
+				<rect x="500" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="517.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">O</text>
+
+				<rect x="545" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="562.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">P</text>
+
+				<rect x="590" y="160" width="40" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="610" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">[</text>
+
+				<rect x="640" y="160" width="40" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="660" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">]</text>
+			</g>
+
+			<!-- Row 3 - Home row -->
+			<g class="key-row">
+				<rect x="80" y="205" width="55" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="107.5" y="227" font-family="Berkeley Mono, monospace" font-size="8" fill="#d4c4a8" text-anchor="middle" font-weight="600">CTRL</text>
+
+				<rect x="145" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="162.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">A</text>
+
+				<rect x="190" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="207.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">S</text>
+
+				<rect x="235" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="252.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">D</text>
+
+				<rect x="280" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="297.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">F</text>
+
+				<rect x="325" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="342.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">G</text>
+
+				<rect x="370" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="387.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">H</text>
+
+				<rect x="415" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="432.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">J</text>
+
+				<rect x="460" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="477.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">K</text>
+
+				<rect x="505" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="522.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">L</text>
+
+				<rect x="550" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="567.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">;</text>
+
+				<rect x="595" y="205" width="40" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="615" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">'</text>
+
+				<rect x="645" y="205" width="45" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="667.5" y="227" font-family="Berkeley Mono, monospace" font-size="9" fill="#d4c4a8" text-anchor="middle" font-weight="600">RET</text>
+			</g>
+
+			<!-- Row 4 - Bottom -->
+			<g class="key-row">
+				<rect x="80" y="250" width="60" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="110" y="272" font-family="Berkeley Mono, monospace" font-size="9" fill="#d4c4a8" text-anchor="middle" font-weight="600">SHIFT</text>
+
+				<rect x="150" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="167.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">Z</text>
+
+				<rect x="195" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="212.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">X</text>
+
+				<rect x="240" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="257.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">C</text>
+
+				<rect x="285" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="302.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">V</text>
+
+				<rect x="330" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="347.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">B</text>
+
+				<rect x="375" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="392.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">N</text>
+
+				<rect x="420" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="437.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">M</text>
+
+				<rect x="465" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="482.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">,</text>
+
+				<rect x="510" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="527.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">.</text>
+
+				<rect x="555" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="572.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">/</text>
+
+				<rect x="600" y="250" width="90" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+				<text x="645" y="272" font-family="Berkeley Mono, monospace" font-size="9" fill="#d4c4a8" text-anchor="middle" font-weight="600">SPACE</text>
+			</g>
+		</g>
+
+		<!-- Numeric keypad section -->
+		<g class="numeric-keypad">
+			<!-- Keypad numbers -->
+			<rect x="730" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="747.5" y="137" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">7</text>
+
+			<rect x="773" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="790.5" y="137" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">8</text>
+
+			<rect x="816" y="115" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="833.5" y="137" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">9</text>
+
+			<rect x="730" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="747.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">4</text>
+
+			<rect x="773" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="790.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">5</text>
+
+			<rect x="816" y="160" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="833.5" y="182" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">6</text>
+
+			<rect x="730" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="747.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">1</text>
+
+			<rect x="773" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="790.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">2</text>
+
+			<rect x="816" y="205" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="833.5" y="227" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">3</text>
+
+			<rect x="730" y="250" width="78" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="769" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">0</text>
+
+			<rect x="816" y="250" width="35" height="35" rx="2" fill="#3a3028" stroke="#2a2018" stroke-width="1.5" filter="url(#paper)"/>
+			<text x="833.5" y="272" font-family="Berkeley Mono, monospace" font-size="14" fill="#d4c4a8" text-anchor="middle" font-weight="600">.</text>
+		</g>
+
+		<!-- Red LED indicators -->
+		<g opacity="0.9">
+			<circle cx="90" cy="92" r="3" fill="#ff3030" filter="url(#paper)"/>
+			<circle cx="115" cy="92" r="3" fill="#ff3030" filter="url(#paper)"/>
+			<circle cx="140" cy="92" r="3" fill="#3a3028" stroke="#2a2018" stroke-width="1"/>
+			<circle cx="165" cy="92" r="3" fill="#3a3028" stroke="#2a2018" stroke-width="1"/>
+		</g>
+	</g>
+</svg>
