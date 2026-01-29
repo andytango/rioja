@@ -4,8 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
+				sans: ['Lato', 'sans-serif'],
 				mono: ['Berkeley Mono', 'monospace'],
-				lato: ['Lato', 'sans-serif'],
 				noto: ['Noto Sans', 'sans-serif'],
 			},
 		},
