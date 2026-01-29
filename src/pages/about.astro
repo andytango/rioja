@@ -13,7 +13,10 @@ import { Linkedin, Github } from "@lucide/astro";
         <meta name="generator" content={Astro.generator} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
         <title>About - Andrew Hall</title>
     </head>
     <body class="font-sans bg-orange-100 text-amber-950 min-h-screen">
@@ -38,18 +41,24 @@ import { Linkedin, Github } from "@lucide/astro";
                     <p class="text-lg leading-relaxed mb-4">
                         There is often a perceived divide between the creative
                         and the technical. I grew up in an environment where
-                        engineering rigor and artistic expression were
+                        engineering rigour and artistic expression were
                         constantly overlapping, so I never saw that divide. I
                         learned early on that structure and creativity are not
                         opposing forces — they are partners.
                     </p>
                     <p class="text-lg leading-relaxed">
-                        This duality defines my work. Whether it's a 3D
-                        visualization or a complex financial platform, the
-                        philosophy remains the same: the best technical
-                        solutions aren't just functionally correct — they have
-                        to feel right to the people using them.
+                        This duality defines my work. Whether it's an
+                        interactive 3D experience, a mobile app or a complex
+                        financial platform, the philosophy remains the same: the
+                        best technical solutions aren't just functionally
+                        correct — they have to feel right to the people using
+                        them.
                     </p>
+                </div>
+
+                <!-- Keyboard -->
+                <div class="flex justify-center mt-12 lg:mt-16">
+                    <RetroKeyboard />
                 </div>
 
                 <div>
@@ -96,18 +105,13 @@ import { Linkedin, Github } from "@lucide/astro";
                     </p>
                 </div>
 
-                <!-- Keyboard -->
-                <div class="flex justify-center mt-12 lg:mt-16">
-                    <RetroKeyboard />
-                </div>
-
                 <div>
                     <h2 class="font-mono text-2xl font-bold mb-4">
                         Velocity versus direction
                     </h2>
                     <p class="text-lg leading-relaxed mb-4">
-                        This rigorous approach is vital in the current AI
-                        revolution. The democratization of development is
+                        This rigourous approach is vital in the current AI
+                        revolution. The democratisation of development is
                         exciting because it allows ideas to be tested faster
                         than ever before. But speed is not the same as
                         direction.
@@ -123,7 +127,9 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
 
                 <div>
-                    <h2 class="font-mono text-2xl font-bold mb-4">Strategy in motion</h2>
+                    <h2 class="font-mono text-2xl font-bold mb-4">
+                        Strategy in motion
+                    </h2>
                     <p class="text-lg leading-relaxed mb-4">
                         Ultimately, strategy cannot survive in a silo. It has to
                         live in the daily operations of the team.
@@ -144,7 +150,9 @@ import { Linkedin, Github } from "@lucide/astro";
             </section>
 
             <!-- Footer Section -->
-            <footer class="mt-16 pt-8 border-t-2 border-amber-950/20 text-center">
+            <footer
+                class="mt-16 pt-8 border-t-2 border-amber-950/20 text-center"
+            >
                 <div class="flex gap-4 justify-center items-center flex-wrap">
                     <a
                         href="https://www.linkedin.com/in/a-hall2"
@@ -167,6 +175,11 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
             </footer>
         </main>
-        <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'></script><!-- End Cloudflare Web Analytics -->
+        <!-- Cloudflare Web Analytics -->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'
+        ></script><!-- End Cloudflare Web Analytics -->
     </body>
 </html>
