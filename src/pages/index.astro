@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+import Portrait from "../components/Portrait.astro";
+import { Linkedin, Github, User } from "@lucide/astro";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>rioja</title>
+    </head>
+    <body class="font-sans bg-orange-100 text-amber-950">
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+            <div class="flex gap-8 items-center mb-12 lg:mb-16 justify-between">
+                <div>
+                    <h1
+                        class="font-mono max-w-content text-4xl lg:text-6xl font-semibold leading-tight"
+                    >
+                        Hello and <span class="text-amber-600">welcome.</span>
+                    </h1>
+                    <p class="my-4 text-xl leading-relaxed">
+                        I'm Andrew, a technologist and entrepreneur based in
+                        Manchester, UK.
+                    </p>
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                    <Portrait />
+                </div>
+            </div>
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16 space-y-16 sm:space-y-0"
+            >
+                <div class="space-y-6">
+                    <h2 class="font-mono text-2xl lg:text-2xl font-bold">
+                        The barrier to entry for <span class="text-amber-600"
+                            >building software</span
+                        > has never been lower.
+                    </h2>
+                    <p class="sm:text-lg leading-relaxed">
+                        AI has democratised creation, allowing anyone to
+                        prototype ideas instantly. With this, we are witnessing
+                        an explosion of "good enough" software.
+                    </p>
+                    <p class="sm:text-lg leading-relaxed">
+                        But in a crowded market, the real challenge isn't just
+                        getting something to work — it's building something that
+                        scales, survives, and stands out.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <h2 class="font-mono text-2xl lg:text-2xl font-bold">
+                        The barrier to <span class="text-amber-600"
+                            >success</span
+                        > has never been higher.
+                    </h2>
+                    <p class="sm:text-lg leading-relaxed">
+                        I help founders and organisations bridge the gap between
+                        a validated concept and a mature product.
+                    </p>
+                    <p class="sm:text-lg leading-relaxed">
+                        I bring an empiricist's mindset — grounded in systems
+                        design, quantitative metrics, and product thinking — to
+                        ensure that we are building a scalable product, not just
+                        prototypes or vapourware.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center">
+                <div
+                    class="grid grid-cols-3 max-w-fit mx-auto gap-4 justify-center items-center"
+                >
+                    <a
+                        href="https://www.linkedin.com/in/a-hall2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                    >
+                        <Linkedin size={20} />
+                        LinkedIn
+                    </a>
+                    <a
+                        href="https://github.com/andytango"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                    >
+                        <Github size={20} />
+                        GitHub
+                    </a>
+                    <a
+                        href="/about"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                    >
+                        <User size={20} />
+                        About me
+                    </a>
+                </div>
+            </div>
+        </main>
+        <!-- Cloudflare Web Analytics -->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'
+        ></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
