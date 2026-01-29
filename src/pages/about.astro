@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import RetroKeyboard from "../components/RetroKeyboard.astro";
+import { Linkedin, Github } from "@lucide/astro";
 ---
 
 <html lang="en">
@@ -146,16 +147,18 @@ import RetroKeyboard from "../components/RetroKeyboard.astro";
                         href="https://www.linkedin.com/in/a-hall2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-block px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors"
                     >
+                        <Linkedin size={20} />
                         LinkedIn
                     </a>
                     <a
                         href="https://github.com/andytango"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-block px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors"
                     >
+                        <Github size={20} />
                         GitHub
                     </a>
                 </div>

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Portrait from "../components/Portrait.astro";
+import { Linkedin, Github, User } from "@lucide/astro";
 ---
 
 <html lang="en">
@@ -31,7 +32,7 @@ import Portrait from "../components/Portrait.astro";
                 </div>
             </div>
             <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16"
+                class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16 space-y-16 sm:space-y-0"
             >
                 <div class="space-y-6">
                     <h2 class="text-2xl lg:text-2xl font-bold">
@@ -39,15 +40,15 @@ import Portrait from "../components/Portrait.astro";
                             >building software</span
                         > has never been lower.
                     </h2>
-                    <p class="text-lg leading-relaxed">
+                    <p class="sm:text-lg leading-relaxed">
                         AI has democratized creation, allowing anyone to
                         prototype ideas instantly. With this, we are witnessing
                         an explosion of "good enough" software.
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="sm:text-lg leading-relaxed">
                         But in a crowded market, the real challenge isn't just
-                        getting something to work  — it's building
-                        something that scales, survives, and stands out.
+                        getting something to work — it's building something that
+                        scales, survives, and stands out.
                     </p>
                 </div>
 
@@ -57,45 +58,55 @@ import Portrait from "../components/Portrait.astro";
                             >success</span
                         > has never been higher.
                     </h2>
-                    <p class="text-lg leading-relaxed">
+                    <p class="sm:text-lg leading-relaxed">
                         I help founders and organizations bridge the gap between
                         a validated concept and a mature product.
                     </p>
-                    <p class="text-lg leading-relaxed">
-                        I bring an empiricist’s mindset  — grounded in
-                        systems design, quantitative metrics, and product
-                        thinking  — to ensure that we are building a
-                        scalable product, not just prototypes or vapourware.
+                    <p class="sm:text-lg leading-relaxed">
+                        I bring an empiricist’s mindset — grounded in systems
+                        design, quantitative metrics, and product thinking — to
+                        ensure that we are building a scalable product, not just
+                        prototypes or vapourware.
                     </p>
                 </div>
             </div>
             <div class="text-center">
-                <div class="flex gap-4 justify-center items-center flex-wrap">
-                    <a
-                        href="/about"
-                        class="inline-block px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
-                    >
-                        Learn More &rarr;
-                    </a>
+                <div
+                    class="grid grid-cols-3 max-w-fit mx-auto gap-4 justify-center items-center"
+                >
                     <a
                         href="https://www.linkedin.com/in/a-hall2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-block px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
                     >
+                        <Linkedin size={20} />
                         LinkedIn
                     </a>
                     <a
                         href="https://github.com/andytango"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-block px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
                     >
+                        <Github size={20} />
                         GitHub
+                    </a>
+                    <a
+                        href="/about"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                    >
+                        <User size={20} />
+                        About me
                     </a>
                 </div>
             </div>
         </main>
-        <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'></script><!-- End Cloudflare Web Analytics -->
+        <!-- Cloudflare Web Analytics -->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'
+        ></script><!-- End Cloudflare Web Analytics -->
     </body>
 </html>
