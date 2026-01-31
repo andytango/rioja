@@ -1,39 +1,31 @@
 ---
 import "../styles/global.css";
+import Layout from "../components/Layout.astro";
+import PageHeading from "../components/PageHeading.astro";
+import BackLink from "../components/BackLink.astro";
 import RetroKeyboard from "../components/RetroKeyboard.astro";
 import { Linkedin, Github } from "@lucide/astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <title>About - Andrew Hall</title>
-    </head>
-    <body class="font-sans bg-orange-100 text-amber-950 min-h-screen">
-        <main class="max-w-4xl mx-auto px-8 py-12">
-            <!-- Navigation -->
-            <nav class="mb-12">
-                <a
-                    href="/"
-                    class="text-amber-600 hover:text-amber-800 transition-colors"
-                    >← Back to Home</a
-                >
-            </nav>
+<Layout
+    title="About - Andrew Hall"
+    description="About Andrew Hall - Technologist and entrepreneur"
+>
+    <main class="font-sans max-w-4xl mx-auto px-8 py-12">
+        <!-- Navigation -->
+        <nav class="mb-12 flex items-center justify-between">
+            <BackLink href="/" text="Back to Home" />
+            <a
+                href="/blog"
+                class="text-amber-600 hover:text-amber-800 transition-colors"
+                >Blog</a
+            >
+        </nav>
 
-            <!-- Header -->
-            <header class="mb-12">
-                <h1 class="font-mono text-5xl font-bold mb-4">About</h1>
-            </header>
+        <!-- Header -->
+        <header class="mb-12">
+            <PageHeading text="About" />
+        </header>
 
             <!-- Content Section -->
             <section class="space-y-8">
@@ -62,7 +54,7 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
 
                 <div>
-                    <h2 class="font-mono text-2xl font-bold mb-4">
+                    <h2 class="font-mono text-2xl font-medium mb-4">
                         From economics to engineering
                     </h2>
                     <p class="text-lg leading-relaxed mb-4">
@@ -81,7 +73,7 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
 
                 <div>
-                    <h2 class="font-mono text-2xl font-bold mb-4">
+                    <h2 class="font-mono text-2xl font-medium mb-4">
                         Evidence over intuition
                     </h2>
                     <p class="text-lg leading-relaxed mb-4">
@@ -106,7 +98,7 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
 
                 <div>
-                    <h2 class="font-mono text-2xl font-bold mb-4">
+                    <h2 class="font-mono text-2xl font-medium mb-4">
                         Velocity versus direction
                     </h2>
                     <p class="text-lg leading-relaxed mb-4">
@@ -127,7 +119,7 @@ import { Linkedin, Github } from "@lucide/astro";
                 </div>
 
                 <div>
-                    <h2 class="font-mono text-2xl font-bold mb-4">
+                    <h2 class="font-mono text-2xl font-medium mb-4">
                         Strategy in motion
                     </h2>
                     <p class="text-lg leading-relaxed mb-4">
@@ -174,12 +166,5 @@ import { Linkedin, Github } from "@lucide/astro";
                     </a>
                 </div>
             </footer>
-        </main>
-        <!-- Cloudflare Web Analytics -->
-        <script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "9dde7d572a9c4cd6b72afe90def4d74f"}'
-        ></script><!-- End Cloudflare Web Analytics -->
-    </body>
-</html>
+    </main>
+</Layout>

@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Portrait from "../components/Portrait.astro";
-import { Linkedin, Github, User } from "@lucide/astro";
+import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
 ---
 
 <html lang="en">
@@ -11,12 +11,27 @@ import { Linkedin, Github, User } from "@lucide/astro";
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+
+        <!-- Preload critical resources -->
+        <link rel="preload" href="/Berkeley Mono.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/portrait.webp" as="image" />
+
+        <!-- Font loading optimization -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
+            rel="preload"
             href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap"
-            rel="stylesheet"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
         />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
+
         <title>rioja</title>
     </head>
     <body class="font-sans bg-orange-100 text-amber-950">
@@ -24,7 +39,7 @@ import { Linkedin, Github, User } from "@lucide/astro";
             <div class="flex gap-8 items-center mb-12 lg:mb-16 justify-between">
                 <div>
                     <h1
-                        class="font-mono max-w-content text-4xl lg:text-6xl font-semibold leading-tight"
+                        class="font-mono max-w-content text-5xl lg:text-7xl font-medium leading-tight"
                     >
                         Hello and <span class="text-amber-600">welcome.</span>
                     </h1>
@@ -41,7 +56,7 @@ import { Linkedin, Github, User } from "@lucide/astro";
                 class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16 space-y-16 sm:space-y-0"
             >
                 <div class="space-y-6">
-                    <h2 class="font-mono text-2xl lg:text-2xl font-bold">
+                    <h2 class="font-mono text-2xl lg:text-2xl font-medium">
                         The barrier to entry for <span class="text-amber-600"
                             >building software</span
                         > has never been lower.
@@ -59,7 +74,7 @@ import { Linkedin, Github, User } from "@lucide/astro";
                 </div>
 
                 <div class="space-y-6">
-                    <h2 class="font-mono text-2xl lg:text-2xl font-bold">
+                    <h2 class="font-mono text-2xl lg:text-2xl font-medium">
                         The barrier to <span class="text-amber-600"
                             >success</span
                         > has never been higher.
@@ -76,34 +91,41 @@ import { Linkedin, Github, User } from "@lucide/astro";
                     </p>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <div
-                    class="grid grid-cols-3 max-w-fit mx-auto gap-4 justify-center items-center"
+                    class="grid grid-cols-2 sm:grid-cols-4 max-w-fit mx-auto gap-4"
                 >
                     <a
                         href="https://www.linkedin.com/in/a-hall2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
                     >
-                        <Linkedin size={20} />
-                        LinkedIn
+                        <Linkedin size={20} class="shrink-0" />
+                        <span>LinkedIn</span>
                     </a>
                     <a
                         href="https://github.com/andytango"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
                     >
-                        <Github size={20} />
-                        GitHub
+                        <Github size={20} class="shrink-0" />
+                        <span>GitHub</span>
+                    </a>
+                    <a
+                        href="/blog"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
+                    >
+                        <BookOpen size={20} class="shrink-0" />
+                        <span>Blog</span>
                     </a>
                     <a
                         href="/about"
-                        class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors mt-4"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
                     >
-                        <User size={20} />
-                        About me
+                        <User size={20} class="shrink-0" />
+                        <span>About me</span>
                     </a>
                 </div>
             </div>
