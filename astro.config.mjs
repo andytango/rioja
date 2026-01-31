@@ -7,6 +7,6 @@ export default defineConfig({
 	integrations: [tailwind()],
 	prefetch: {
 		prefetchAll: true,
-		defaultStrategy: 'hover',
+		defaultStrategy: 'load',
 	},
 });
