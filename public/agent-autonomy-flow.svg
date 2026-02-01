@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" role="img" aria-labelledby="flow-title flow-desc">
+  <title id="flow-title">Agent autonomy decision flow</title>
+  <desc id="flow-desc">Diagram showing how rigorous guidelines enable agent autonomy, which enables efficient prototyping</desc>
+
+  <defs>
+    <style>
+      .box {
+        fill: #fed7aa;
+        stroke: #d97706;
+        stroke-width: 2;
+      }
+      .text {
+        font-family: 'Berkeley Mono', monospace, system-ui, sans-serif;
+        font-size: 16px;
+        fill: #451a03;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+      .arrow {
+        fill: none;
+        stroke: #d97706;
+        stroke-width: 2;
+        marker-end: url(#arrowhead);
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#d97706" />
+    </marker>
+  </defs>
+
+  <!-- Box 1: Rigorous guidelines -->
+  <rect x="20" y="60" width="200" height="80" rx="8" class="box"/>
+  <text x="120" y="85" class="text">Rigorous</text>
+  <text x="120" y="110" class="text">guidelines</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 230 100 L 280 100" class="arrow"/>
+
+  <!-- Box 2: Agent autonomy -->
+  <rect x="290" y="60" width="200" height="80" rx="8" class="box"/>
+  <text x="390" y="85" class="text">Agent</text>
+  <text x="390" y="110" class="text">autonomy</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 500 100 L 550 100" class="arrow"/>
+
+  <!-- Box 3: Efficient prototyping -->
+  <rect x="560" y="60" width="200" height="80" rx="8" class="box"/>
+  <text x="660" y="85" class="text">Efficient</text>
+  <text x="660" y="110" class="text">prototyping</text>
+</svg>
