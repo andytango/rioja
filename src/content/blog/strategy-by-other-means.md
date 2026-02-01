@@ -18,7 +18,7 @@ Before starting any development, I had to define what this site actually is. It 
 
 The strategy here was simple: **capture my learnings and experiences so that future partners, collaborators and, yes, employers can see how I approach problems.**
 
-If the goal is clarity and communication, then the design decision becomes obvious. We need to minimiseany noise.
+If the goal is clarity and communication, then the design decision becomes obvious. We need to minimise any noise.
 
 ## The execution: AI as a collaborator
 
