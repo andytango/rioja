@@ -1,70 +1,80 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../components/Layout.astro';
-import PageHeading from '../../components/PageHeading.astro';
-import BackLink from '../../components/BackLink.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+import PageHeading from "../../components/PageHeading.astro";
+import BackLink from "../../components/BackLink.astro";
 
-const allPosts = await getCollection('blog', ({ data }) => {
-  return data.draft !== true;
+const allPosts = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
 });
 
 // Sort posts by date, newest first
 const sortedPosts = allPosts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <Layout
-  title="Blog - rioja"
-  description="Thoughts on economics, technology, and strategy."
+    title="Blog - rioja"
+    description="Thoughts on economics, technology, and strategy."
 >
-  <main class="max-w-4xl mx-auto px-4 py-12">
-    <!-- Header -->
-    <header class="mb-12">
-      <nav class="mb-12">
-        <BackLink href="/" text="Back to Home" />
-      </nav>
-      <PageHeading text="Blog" />
-    </header>
+    <main class="container max-w-6xl mx-auto px-4 py-12">
+        <!-- Header -->
+        <header class="mb-12">
+            <nav class="mb-12">
+                <BackLink href="/" text="Back to Home" />
+            </nav>
+            <PageHeading text="Blog" />
+        </header>
 
-    <!-- Blog Posts List -->
-    <div class="space-y-12">
-      {sortedPosts.map((post) => (
-        <article class="border-b border-amber-950/10 pb-12 last:border-0">
-          <a href={`/blog/${post.slug}`} class="group block">
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
-              <h2 class="text-2xl sm:text-3xl font-mono font-medium text-amber-950 group-hover:text-amber-600 transition-colors">
-                {post.data.title}
-              </h2>
-              <time datetime={post.data.pubDate.toISOString()} class="text-sm font-mono text-amber-600 shrink-0">
-                {post.data.pubDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric'
-                })}
-              </time>
-            </div>
-            <p class="text-lg text-amber-950/80 leading-relaxed mb-3">
-              {post.data.description}
-            </p>
-            {post.data.tags.length > 0 && (
-              <div class="flex gap-3">
-                {post.data.tags.map((tag) => (
-                  <span class="text-xs font-mono text-amber-600">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </a>
-        </article>
-      ))}
-    </div>
+        <!-- Blog Posts List -->
+        <div class="space-y-12">
+            {
+                sortedPosts.map((post) => (
+                    <article class="border-b border-amber-950/10 pb-12 last:border-0">
+                        <a href={`/blog/${post.slug}`} class="group block">
+                            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                                <h2 class="text-2xl sm:text-2xl font-mono font-semibold text-amber-950 group-hover:text-amber-600 transition-colors">
+                                    {post.data.title}
+                                </h2>
+                                <time
+                                    datetime={post.data.pubDate.toISOString()}
+                                    class="text-sm font-mono text-amber-600 shrink-0"
+                                >
+                                    {post.data.pubDate.toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </time>
+                            </div>
+                            <p class=" text-amber-950/80 leading-relaxed mb-3">
+                                {post.data.description}
+                            </p>
+                            {post.data.tags.length > 0 && (
+                                <div class="flex gap-3">
+                                    {post.data.tags.map((tag) => (
+                                        <span class="text-xs font-mono text-amber-600">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </a>
+                    </article>
+                ))
+            }
+        </div>
 
-    {sortedPosts.length === 0 && (
-      <p class="text-center text-amber-600 py-12">
-        No posts yet. Check back soon!
-      </p>
-    )}
-  </main>
+        {
+            sortedPosts.length === 0 && (
+                <p class="text-center text-amber-600 py-12">
+                    No posts yet. Check back soon!
+                </p>
+            )
+        }
+    </main>
 </Layout>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" role="img" aria-label="Test-Driven Development cycle diagram">
+  <title>TDD Cycle</title>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .box-text { font-size: 15px; font-weight: 500; }
+      .box-subtext { font-size: 12px; font-style: italic; }
+      .title-text { font-size: 18px; font-weight: bold; }
+      .arrow { fill: none; stroke: currentColor; stroke-width: 2.5; marker-end: url(#arrowhead); }
+      .box { fill: rgba(0, 0, 0, 0.02); stroke: currentColor; stroke-width: 2; rx: 6; }
+      .red-box { stroke: rgb(239, 68, 68); fill: rgba(239, 68, 68, 0.05); }
+      .green-box { stroke: rgb(34, 197, 94); fill: rgba(34, 197, 94, 0.05); }
+      .blue-box { stroke: rgb(59, 130, 246); fill: rgba(59, 130, 246, 0.05); }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="currentColor" />
+    </marker>
+  </defs>
+
+  <!-- Top: Add new requirement -->
+  <rect class="box blue-box" x="325" y="50" width="250" height="80"/>
+  <text x="450" y="85" text-anchor="middle" class="box-text">Add new requirement</text>
+  <text x="450" y="105" text-anchor="middle" class="box-subtext">Define expected behaviour</text>
+
+  <!-- Top Right: Write failing test -->
+  <rect class="box red-box" x="625" y="200" width="220" height="80"/>
+  <text x="735" y="235" text-anchor="middle" class="box-text">Write failing test</text>
+  <text x="735" y="255" text-anchor="middle" class="box-subtext">Captures expected behaviour</text>
+
+  <!-- Bottom Right: Implement code -->
+  <rect class="box green-box" x="625" y="450" width="220" height="80"/>
+  <text x="735" y="480" text-anchor="middle" class="box-text">Implement code</text>
+  <text x="735" y="500" text-anchor="middle" class="box-subtext">Make test pass</text>
+
+  <!-- Bottom: Run tests -->
+  <rect class="box green-box" x="325" y="600" width="250" height="80"/>
+  <text x="450" y="635" text-anchor="middle" class="box-text">Run tests</text>
+  <text x="450" y="655" text-anchor="middle" class="box-subtext">Verify all tests pass</text>
+
+  <!-- Bottom Left: Clean up and optimize -->
+  <rect class="box blue-box" x="55" y="450" width="220" height="80"/>
+  <text x="165" y="480" text-anchor="middle" class="box-text">Clean up, optimize</text>
+  <text x="165" y="500" text-anchor="middle" class="box-subtext">Refactor while tests pass</text>
+
+  <!-- Top Left: Review -->
+  <rect class="box blue-box" x="55" y="200" width="220" height="80"/>
+  <text x="165" y="235" text-anchor="middle" class="box-text">Review and refine</text>
+  <text x="165" y="255" text-anchor="middle" class="box-subtext">Check coverage</text>
+
+  <!-- Arrows connecting box centers -->
+  <!-- Top to Top Right -->
+  <path class="arrow" d="M 575 90 Q 650 145 680 200"/>
+
+  <!-- Top Right to Bottom Right -->
+  <path class="arrow" d="M 735 280 L 735 450"/>
+
+  <!-- Bottom Right to Bottom -->
+  <path class="arrow" d="M 680 530 Q 650 575 575 640"/>
+
+  <!-- Bottom to Bottom Left -->
+  <path class="arrow" d="M 325 640 Q 250 575 220 530"/>
+
+  <!-- Bottom Left to Top Left -->
+  <path class="arrow" d="M 165 450 L 165 280"/>
+
+  <!-- Top Left to Top - improved curve -->
+  <path class="arrow" d="M 220 200 Q 250 125 325 90"/>
+
+  <!-- Title -->
+  <text x="450" y="720" text-anchor="middle" class="title-text">
+    Test-Driven Development Cycle
+  </text>
+</svg>

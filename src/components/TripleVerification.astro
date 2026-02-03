@@ -1,0 +1,169 @@
+---
+// Triple Verification diagram component
+---
+
+<div class="triple-verification">
+  <div class="code-container">
+    <div class="code-section docstring">
+      <div class="annotation">
+        <div class="annotation-label">1. Intent</div>
+        <div class="annotation-sublabel">(Natural language)</div>
+      </div>
+      <pre><code><span class="comment">/**
+ * Validates user email format and domain whitelist.
+ * @param email - User email address to validate
+ * @returns true if valid, false otherwise
+ */</span></code></pre>
+    </div>
+
+    <div class="code-section implementation">
+      <div class="annotation">
+        <div class="annotation-label">2. Logic</div>
+        <div class="annotation-sublabel">(Implementation)</div>
+      </div>
+      <pre><code><span class="keyword">function</span> validateEmail(email: <span class="keyword">string</span>): <span class="keyword">boolean</span> {
+  <span class="keyword">const</span> emailRegex = <span class="string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>;
+  <span class="keyword">const</span> whitelist = [<span class="string">'company.com'</span>, <span class="string">'partner.org'</span>];
+
+  <span class="keyword">if</span> (!emailRegex.test(email)) <span class="keyword">return false</span>;
+
+  <span class="keyword">const</span> domain = email.split(<span class="string">'@'</span>)[1];
+  <span class="keyword">return</span> whitelist.includes(domain);
+}</code></pre>
+    </div>
+
+    <div class="code-section test">
+      <div class="annotation">
+        <div class="annotation-label">3. Behaviour</div>
+        <div class="annotation-sublabel">(Verification)</div>
+      </div>
+      <pre><code><span class="keyword">test</span>(<span class="string">'validates email correctly'</span>, () => {
+  expect(validateEmail(<span class="string">'user@company.com'</span>)).toBe(<span class="keyword">true</span>);
+  expect(validateEmail(<span class="string">'invalid@spam.com'</span>)).toBe(<span class="keyword">false</span>);
+});</code></pre>
+    </div>
+  </div>
+
+  <p class="diagram-caption">
+    Triple verification: three modalities must align
+  </p>
+</div>
+
+<style>
+  .triple-verification {
+    margin: 2rem 0;
+    font-family: 'Berkeley Mono', monospace;
+  }
+
+  .code-container {
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .code-section {
+    position: relative;
+    margin-bottom: 2rem;
+    border: 2px solid #8b5cf6;
+    border-radius: 6px;
+    padding: 1rem;
+    background: rgba(139, 92, 246, 0.03);
+  }
+
+  .code-section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .annotation {
+    position: absolute;
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    padding-left: 30px;
+  }
+
+  .annotation::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background: #8b5cf6;
+  }
+
+  .annotation::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid #8b5cf6;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+
+  .annotation-label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .annotation-sublabel {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+
+  pre {
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  code {
+    font-family: 'Berkeley Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .comment {
+    color: #6b7280;
+  }
+
+  .keyword {
+    color: #8b5cf6;
+    font-weight: 500;
+  }
+
+  .string {
+    color: #10b981;
+  }
+
+  .diagram-caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    .annotation {
+      position: static;
+      transform: none;
+      width: auto;
+      padding: 0;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #8b5cf6;
+    }
+
+    .annotation::before,
+    .annotation::after {
+      display: none;
+    }
+  }
+</style>
