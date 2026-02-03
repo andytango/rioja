@@ -25,12 +25,12 @@
   <!-- Top Right: Write failing test -->
   <rect class="box red-box" x="625" y="200" width="220" height="80"/>
   <text x="735" y="235" text-anchor="middle" class="box-text">Write failing test</text>
-  <text x="735" y="255" text-anchor="middle" class="box-subtext">RED</text>
+  <text x="735" y="255" text-anchor="middle" class="box-subtext">Captures expected behaviour</text>
 
   <!-- Bottom Right: Implement code -->
   <rect class="box green-box" x="625" y="450" width="220" height="80"/>
   <text x="735" y="480" text-anchor="middle" class="box-text">Implement code</text>
-  <text x="735" y="500" text-anchor="middle" class="box-subtext">Make test pass (GREEN)</text>
+  <text x="735" y="500" text-anchor="middle" class="box-subtext">Make test pass</text>
 
   <!-- Bottom: Run tests -->
   <rect class="box green-box" x="325" y="600" width="250" height="80"/>
