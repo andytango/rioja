@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 0 775 700" role="img" aria-label="Triple verification diagram">
+  <title>Triple Verification Pattern</title>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; font-size: 14px; fill: currentColor; }
+      .code { font-size: 13px; line-height: 1.6; }
+      .comment { fill: #6b7280; }
+      .keyword { fill: #8b5cf6; font-weight: 500; }
+      .string { fill: #10b981; }
+      .box { fill: rgba(0, 0, 0, 0.02); stroke: currentColor; stroke-width: 2; rx: 8; }
+      .bracket { fill: none; stroke: #8b5cf6; stroke-width: 3; }
+      .label { font-size: 15px; font-weight: bold; fill: #8b5cf6; }
+      .sublabel { font-size: 12px; fill: #6b7280; }
+      .title { font-size: 17px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Main code box -->
+  <rect class="box" x="220" y="50" width="600" height="580"/>
+
+  <!-- Code content -->
+  <text x="245" y="85" class="code comment">/**</text>
+  <text x="245" y="105" class="code comment"> * Validates user email format and domain whitelist.</text>
+  <text x="245" y="125" class="code comment"> * @param email - User email address to validate</text>
+  <text x="245" y="145" class="code comment"> * @returns true if valid, false otherwise</text>
+  <text x="245" y="165" class="code comment"> */</text>
+
+  <text x="245" y="200" class="code"><tspan class="keyword">function</tspan> validateEmail(email: <tspan class="keyword">string</tspan>): <tspan class="keyword">boolean</tspan> {</text>
+  <text x="270" y="225" class="code"><tspan class="keyword">const</tspan> emailRegex = <tspan class="string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</tspan>;</text>
+  <text x="270" y="250" class="code"><tspan class="keyword">const</tspan> whitelist = [<tspan class="string">'company.com'</tspan>, <tspan class="string">'partner.org'</tspan>];</text>
+
+  <text x="270" y="285" class="code"><tspan class="keyword">if</tspan> (!emailRegex.test(email)) <tspan class="keyword">return false</tspan>;</text>
+
+  <text x="270" y="320" class="code"><tspan class="keyword">const</tspan> domain = email.split(<tspan class="string">'@'</tspan>)[1];</text>
+  <text x="270" y="345" class="code"><tspan class="keyword">return</tspan> whitelist.includes(domain);</text>
+  <text x="245" y="370" class="code">}</text>
+
+  <text x="245" y="420" class="code"><tspan class="keyword">test</tspan>(<tspan class="string">'validates email correctly'</tspan>, () => {</text>
+  <text x="270" y="445" class="code">expect(validateEmail(<tspan class="string">'user@company.com'</tspan>)).toBe(<tspan class="keyword">true</tspan>);</text>
+  <text x="270" y="470" class="code">expect(validateEmail(<tspan class="string">'invalid@spam.com'</tspan>)).toBe(<tspan class="keyword">false</tspan>);</text>
+  <text x="245" y="495" class="code">});</text>
+
+  <!-- Left brackets for annotations -->
+  <path class="bracket" d="M 205 75 L 190 75 L 190 170 L 205 170"/>
+  <path class="bracket" d="M 205 195 L 190 195 L 190 375 L 205 375"/>
+  <path class="bracket" d="M 205 415 L 190 415 L 190 500 L 205 500"/>
+
+  <!-- Annotation labels -->
+  <text x="175" y="115" text-anchor="end" class="label">1. Intent</text>
+  <text x="175" y="133" text-anchor="end" class="sublabel">(Natural language)</text>
+
+  <text x="175" y="280" text-anchor="end" class="label">2. Logic</text>
+  <text x="175" y="298" text-anchor="end" class="sublabel">(Implementation)</text>
+
+  <text x="175" y="455" text-anchor="end" class="label">3. Behaviour</text>
+  <text x="175" y="473" text-anchor="end" class="sublabel">(Verification)</text>
+
+  <!-- Title -->
+  <text x="520" y="665" text-anchor="middle" class="title">
+    Triple verification: three modalities must align
+  </text>
+</svg>

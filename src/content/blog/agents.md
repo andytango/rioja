@@ -36,11 +36,17 @@ Context windows are finite, and agent reasoning degrades as complexity increases
 
 We decouple logic into small, individually testable services with clear, simple interfaces. This allows the agent to reason about one component at a time without needing to hold the entire system state in its "head." Complexity is allowed to emerge from the composition of simple components, rather than from monolithic functions.
 
+![Library of Services pattern](/library-of-services.svg)
+
 ### 2. Test-driven development (TDD)
 
 The "Library of Services" pattern enables the second pillar of my approach: test-driven development.
 
 I require agents to write tests alongside implementation. This is not just about code quality; it is about self-correction. If an agent writes a test that fails, it receives an immediate error signal and can iterate to fix it without my intervention. This verification loop allows the agent to debug its own work, significantly increasing the autonomy of the session.
+
+I enforce a 95% test coverage target. When I report bugs to the agent, I ask it to consider why its tests didn't catch the issue. This reflective process forces the agent to strengthen its test suite and reduces the likelihood of similar failures in the future.
+
+![Test-Driven Development cycle](/tdd-cycle.svg)
 
 ### 3. Triple verification
 
@@ -53,6 +59,8 @@ When I studied Economics, we demonstrated our understanding of a model in three 
 - **The docstring**: The intent expressed in natural language.
 - **The code**: The logic expressed in syntax.
 - **The test**: The behaviour verified by execution.
+
+![Triple verification pattern](/triple-verification.svg)
 
 When these three modalities align, the probability of a hallucination drops significantly.
 
