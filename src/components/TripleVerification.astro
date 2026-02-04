@@ -7,7 +7,7 @@
     <div class="code-section docstring">
       <div class="annotation">
         <div class="annotation-label">1. Intent</div>
-        <div class="annotation-sublabel">(Natural language)</div>
+        <div class="annotation-sublabel">Natural language</div>
       </div>
       <pre><code><span class="comment">/**
  * Validates user email format and domain whitelist.
@@ -19,7 +19,7 @@
     <div class="code-section implementation">
       <div class="annotation">
         <div class="annotation-label">2. Logic</div>
-        <div class="annotation-sublabel">(Implementation)</div>
+        <div class="annotation-sublabel">Implementation</div>
       </div>
       <pre><code><span class="keyword">function</span> validateEmail(email: <span class="keyword">string</span>): <span class="keyword">boolean</span> {
   <span class="keyword">const</span> emailRegex = <span class="string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>;
@@ -35,7 +35,7 @@
     <div class="code-section test">
       <div class="annotation">
         <div class="annotation-label">3. Behaviour</div>
-        <div class="annotation-sublabel">(Verification)</div>
+        <div class="annotation-sublabel">Verification</div>
       </div>
       <pre><code><span class="keyword">test</span>(<span class="string">'validates email correctly'</span>, () => {
   expect(validateEmail(<span class="string">'user@company.com'</span>)).toBe(<span class="keyword">true</span>);
