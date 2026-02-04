@@ -9,7 +9,8 @@ const { href, text } = Astro.props;
 
 <a
     href={href}
-    class="font-mono text-amber-600 hover:text-amber-800 transition-colors"
+    class="group inline-flex items-center gap-1 font-mono text-amber-600 hover:text-amber-800 transition-colors focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 rounded"
 >
-    ← {text}
+    <span class="inline-block transition-transform group-hover:-translate-x-1">←</span>
+    <span>{text}</span>
 </a>
