@@ -44,27 +44,27 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
         <main
             class="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16"
         >
-            <div class="flex gap-8 items-center mb-12 lg:mb-16 justify-between">
-                <div class="flex-1">
+            <div class="flex flex-col-reverse sm:flex-row gap-8 items-center mb-12 lg:mb-16 justify-between">
+                <div class="flex-1 text-center sm:text-left">
                     <h1
-                        class="font-mono max-w-content text-5xl lg:text-7xl font-medium leading-tight"
+                        class="font-mono max-w-content text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight"
                     >
                         Hello and <span class="text-amber-600">welcome.</span>
                     </h1>
-                    <p class="my-4 text-xl leading-relaxed">
+                    <p class="my-4 text-lg sm:text-xl leading-relaxed">
                         I'm Andrew, a technologist and entrepreneur based in
                         Manchester, UK.
                     </p>
                 </div>
-                <div class="mx-auto rounded-lg overflow-hidden">
+                <div class="mx-auto sm:mx-0 rounded-lg overflow-hidden shrink-0">
                     <Portrait />
                 </div>
             </div>
             <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16 space-y-16 sm:space-y-0"
+                class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 lg:mb-16"
             >
                 <div class="space-y-6">
-                    <h2 class="font-mono text-2xl lg:text-2xl font-medium">
+                    <h2 class="font-mono text-xl sm:text-2xl font-medium">
                         The barrier to entry for <span class="text-amber-600"
                             >building software</span
                         > has never been lower.
@@ -82,7 +82,7 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
                 </div>
 
                 <div class="space-y-6">
-                    <h2 class="font-mono text-2xl lg:text-2xl font-medium">
+                    <h2 class="font-mono text-xl sm:text-2xl font-medium">
                         The barrier to <span class="text-amber-600"
                             >success</span
                         > has never been higher.
@@ -107,7 +107,7 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
                         href="https://www.linkedin.com/in/a-hall2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded-lg hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 whitespace-nowrap"
                     >
                         <Linkedin size={20} class="shrink-0" />
                         <span>LinkedIn</span>
@@ -116,21 +116,21 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
                         href="https://github.com/andytango"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded-lg hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 whitespace-nowrap"
                     >
                         <Github size={20} class="shrink-0" />
                         <span>GitHub</span>
                     </a>
                     <a
                         href="/blog"
-                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded-lg hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 whitespace-nowrap"
                     >
                         <BookOpen size={20} class="shrink-0" />
                         <span>Blog</span>
                     </a>
                     <a
                         href="/about"
-                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded hover:bg-amber-700 transition-colors whitespace-nowrap"
+                        class="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-orange-100 font-semibold rounded-lg hover:bg-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 whitespace-nowrap"
                     >
                         <User size={20} class="shrink-0" />
                         <span>About me</span>
