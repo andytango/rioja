@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 290" role="img" aria-labelledby="if-title if-desc">
+  <title id="if-title">Input-Forwards approach</title>
+  <desc id="if-desc">The same pipeline with the data source at full opacity fading gradually toward the output screens, showing the input-forwards build strategy</desc>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .label { font-size: 14px; font-weight: 500; text-anchor: middle; dominant-baseline: middle; }
+      .sm-label { font-size: 13px; font-weight: 500; text-anchor: middle; dominant-baseline: middle; }
+      .note { font-size: 11px; font-style: italic; text-anchor: middle; dominant-baseline: middle; }
+      .active { fill: rgba(217, 119, 6, 0.1); stroke: currentColor; stroke-width: 2; rx: 6; }
+      .box { fill: rgba(0, 0, 0, 0.03); stroke: currentColor; stroke-width: 2; rx: 6; }
+      .arrow { fill: none; stroke: currentColor; stroke-width: 2; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 0.5, 9 4, 0 7.5" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- Data Source -->
+  <rect class="active" x="15" y="101" width="140" height="52"/>
+  <text class="label" x="85" y="127">Data Source</text>
+
+  <g opacity="0.85">
+    <path class="arrow" d="M 155 127 L 193 127"/>
+  </g>
+
+  <!-- Ingestion -->
+  <g opacity="0.75">
+    <rect class="box" x="195" y="101" width="120" height="52"/>
+    <text class="label" x="255" y="127">Ingestion</text>
+  </g>
+
+  <g opacity="0.6">
+    <path class="arrow" d="M 315 127 L 353 127"/>
+  </g>
+
+  <!-- Enrichment -->
+  <g opacity="0.55">
+    <rect class="box" x="355" y="101" width="120" height="52"/>
+    <text class="label" x="415" y="127">Enrichment</text>
+  </g>
+
+  <g opacity="0.47">
+    <path class="arrow" d="M 475 127 L 513 127"/>
+  </g>
+
+  <!-- Transform -->
+  <g opacity="0.4">
+    <rect class="box" x="515" y="101" width="130" height="52"/>
+    <text class="label" x="580" y="127">Transform</text>
+  </g>
+
+  <!-- Fan-out arrows -->
+  <g opacity="0.32">
+    <path class="arrow" d="M 645 127 L 718 37"/>
+    <path class="arrow" d="M 645 127 L 718 97"/>
+    <path class="arrow" d="M 645 127 L 718 157"/>
+    <path class="arrow" d="M 645 127 L 718 217"/>
+  </g>
+
+  <!-- Output boxes -->
+  <g opacity="0.25">
+    <rect class="box" x="720" y="15" width="130" height="44"/>
+    <text class="sm-label" x="785" y="37">Alerts</text>
+
+    <rect class="box" x="720" y="75" width="130" height="44"/>
+    <text class="sm-label" x="785" y="97">Feeds</text>
+
+    <rect class="box" x="720" y="135" width="130" height="44"/>
+    <text class="sm-label" x="785" y="157">Dashboards</text>
+
+    <rect class="box" x="720" y="195" width="130" height="44"/>
+    <text class="sm-label" x="785" y="217">Reports</text>
+  </g>
+
+  <!-- Build direction arrow -->
+  <g opacity="0.35">
+    <path d="M 80 265 L 790 265" class="arrow"/>
+    <text class="note" x="435" y="282">Build direction</text>
+  </g>
+</svg>
