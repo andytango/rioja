@@ -47,13 +47,13 @@
 
   <!-- Annotation labels -->
   <text x="175" y="115" text-anchor="end" class="label">1. Intent</text>
-  <text x="175" y="133" text-anchor="end" class="sublabel">(Natural language)</text>
+  <text x="175" y="133" text-anchor="end" class="sublabel">Natural language</text>
 
   <text x="175" y="280" text-anchor="end" class="label">2. Logic</text>
-  <text x="175" y="298" text-anchor="end" class="sublabel">(Implementation)</text>
+  <text x="175" y="298" text-anchor="end" class="sublabel">Implementation</text>
 
   <text x="175" y="455" text-anchor="end" class="label">3. Behaviour</text>
-  <text x="175" y="473" text-anchor="end" class="sublabel">(Verification)</text>
+  <text x="175" y="473" text-anchor="end" class="sublabel">Verification</text>
 
   <!-- Title -->
   <text x="520" y="665" text-anchor="middle" class="title">

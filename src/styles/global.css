@@ -9,3 +9,46 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* Blog content layout: constrain text to prose width, allow images to be wider */
+/* Using fixed rem value (42rem ≈ 672px) for consistent alignment across different fonts */
+.blog-content p,
+.blog-content ul,
+.blog-content ol,
+.blog-content blockquote,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6,
+.blog-content pre {
+	max-width: 42rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Paragraphs containing only images/svgs use wider space */
+.blog-content p:has(> img:only-child),
+.blog-content p:has(> svg:only-child) {
+	max-width: 56rem !important; /* 896px */
+}
+
+/* Images use wider space */
+.blog-content img,
+.blog-content svg {
+	max-width: 56rem; /* 896px */
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: auto;
+}
+
+/* Mobile: everything uses full available width */
+@media (max-width: 640px) {
+	.blog-content p:has(> img:only-child),
+	.blog-content p:has(> svg:only-child),
+	.blog-content img,
+	.blog-content svg {
+		max-width: 100%;
+	}
+}

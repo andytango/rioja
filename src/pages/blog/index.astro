@@ -20,19 +20,19 @@ const sortedPosts = allPosts.sort(
 >
     <main class="container max-w-6xl mx-auto px-4 py-12">
         <!-- Header -->
-        <header class="mb-12">
-            <nav class="mb-12">
-                <BackLink href="/" text="Back to Home" />
+        <header class="mb-8">
+            <nav class="mb-8">
+                <BackLink href="/" text="Home" />
             </nav>
             <PageHeading text="Blog" />
         </header>
 
         <!-- Blog Posts List -->
-        <div class="space-y-12">
+        <div class="space-y-8">
             {
                 sortedPosts.map((post) => (
-                    <article class="border-b border-amber-950/10 pb-12 last:border-0">
-                        <a href={`/blog/${post.slug}`} class="group block rounded focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-4 focus-visible:ring-offset-orange-100">
+                    <article class="border-b border-amber-950/10 pb-8 last:border-0">
+                        <a href={`/blog/${post.slug}`} class="group block rounded -mx-4 px-4 py-2 hover:bg-amber-950/5 transition-colors focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-4 focus-visible:ring-offset-orange-100">
                             <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-2 mb-4">
                                 <h2 class="text-2xl font-mono font-semibold text-amber-950 group-hover:text-amber-600 transition-colors group-hover:underline underline-offset-4">
                                     {post.data.title}
@@ -57,7 +57,7 @@ const sortedPosts = allPosts.sort(
                             {post.data.tags.length > 0 && (
                                 <div class="flex gap-3">
                                     {post.data.tags.map((tag) => (
-                                        <span class="text-xs font-mono text-amber-600">
+                                        <span class="text-xs font-mono text-amber-600 px-2 py-0.5 border border-amber-600/30 rounded-full">
                                             {tag}
                                         </span>
                                     ))}
