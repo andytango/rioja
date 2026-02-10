@@ -150,6 +150,36 @@
     margin-bottom: 0;
   }
 
+  /* Dark mode overrides */
+  :global(.dark) .code-container {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  :global(.dark) .code-section {
+    border-color: #a78bfa;
+    background: rgba(167, 139, 250, 0.06);
+  }
+
+  :global(.dark) .annotation::before {
+    background: #a78bfa;
+  }
+
+  :global(.dark) .annotation::after {
+    border-left-color: #a78bfa;
+  }
+
+  :global(.dark) .comment {
+    color: #9ca3af;
+  }
+
+  :global(.dark) .keyword {
+    color: #a78bfa;
+  }
+
+  :global(.dark) .string {
+    color: #34d399;
+  }
+
   @media (max-width: 900px) {
     .annotation {
       position: static;
@@ -159,6 +189,10 @@
       margin-bottom: 0.75rem;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid #8b5cf6;
+    }
+
+    :global(.dark) .annotation {
+      border-bottom-color: #a78bfa;
     }
 
     .annotation::before,

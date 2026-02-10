@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark mode: colour-scheme tells the browser to style native controls */
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+
+/* Smooth background/colour transition when toggling theme */
+body {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Invert SVG diagrams in dark mode so they remain readable */
+:root.dark .blog-content img[src$=".svg"] {
+	filter: invert(1) hue-rotate(180deg);
+}
+
 @font-face {
 	font-family: 'Berkeley Mono';
 	src: url('/Berkeley Mono.woff2') format('woff2');
