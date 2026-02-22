@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 185" role="img" aria-label="Vibe mode flow diagram">
+  <title>Vibe mode: Generate and Verify loop</title>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .box-text  { font-size: 12px; font-weight: 500; }
+      .box-sub   { font-size: 10px; font-style: italic; }
+      .human-box { stroke: rgb(217, 119, 6);  fill: rgba(217, 119, 6,  0.08); }
+      .ai-box    { stroke: rgb(59, 130, 246); fill: rgba(59, 130, 246, 0.08); }
+      .arrow     { fill: none; stroke: currentColor; stroke-width: 2; marker-end: url(#arrowhead); }
+      .back-arrow{ fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 5,3; marker-end: url(#arrowhead); opacity: 0.7; }
+      .human-icon{ stroke: rgb(217, 119, 6); fill: none; }
+      .ai-icon   { stroke: rgb(59, 130, 246); fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- Generate (AI, left) — box: x=60 y=70 w=180 h=50, centre y=95 -->
+  <rect class="ai-box" x="60" y="70" width="180" height="50" rx="6"/>
+  <text x="150" y="90" text-anchor="middle" dominant-baseline="middle" class="box-text">Generate</text>
+  <text x="150" y="106" text-anchor="middle" dominant-baseline="middle" class="box-sub">Prompt freely</text>
+  <g class="ai-icon" transform="translate(226, 82)">
+    <rect x="-5" y="-5" width="10" height="10" rx="2" fill="none" stroke-width="1.5"/>
+    <line x1="-5" y1="-2" x2="-8" y2="-2" stroke-width="1.5"/>
+    <line x1="-5" y1="2"  x2="-8" y2="2"  stroke-width="1.5"/>
+    <line x1="5"  y1="-2" x2="8"  y2="-2" stroke-width="1.5"/>
+    <line x1="5"  y1="2"  x2="8"  y2="2"  stroke-width="1.5"/>
+  </g>
+
+  <!-- Verify (human, right) — box: x=360 y=70 w=180 h=50, centre y=95 -->
+  <rect class="human-box" x="360" y="70" width="180" height="50" rx="6"/>
+  <text x="450" y="90" text-anchor="middle" dominant-baseline="middle" class="box-text">Verify</text>
+  <text x="450" y="106" text-anchor="middle" dominant-baseline="middle" class="box-sub">Looks right?</text>
+  <g class="human-icon" transform="translate(526, 82)">
+    <circle cx="0" cy="-5" r="3.5" stroke-width="1.5"/>
+    <path d="M -6 5 Q 0 0 6 5" fill="none" stroke-width="1.5"/>
+  </g>
+
+  <!-- Generate → Verify (curves above) -->
+  <path class="arrow" d="M 240 80 Q 300 30 360 80"/>
+
+  <!-- Verify → Generate (curves below, dashed) -->
+  <path class="back-arrow" d="M 360 110 Q 300 155 240 110"/>
+</svg>

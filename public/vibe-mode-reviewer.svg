@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 310" role="img" aria-label="Reviewer mode flow diagram">
+  <title>Reviewer mode: Plan, Execute, Review, Test cycle</title>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .box-text  { font-size: 14px; font-weight: 500; }
+      .box-sub   { font-size: 11px; font-style: italic; }
+      .human-box { stroke: rgb(217, 119, 6);  fill: rgba(217, 119, 6,  0.08); }
+      .ai-box    { stroke: rgb(59, 130, 246); fill: rgba(59, 130, 246, 0.08); }
+      .arrow     { fill: none; stroke: currentColor; stroke-width: 2; marker-end: url(#arrowhead); }
+      .back-arrow{ fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 5,3; marker-end: url(#arrowhead); opacity: 0.7; }
+      .node-icon { stroke: currentColor; fill: none; }
+      .human-icon{ stroke: rgb(217, 119, 6); fill: none; }
+      .ai-icon   { stroke: rgb(59, 130, 246); fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- Row 1, Col 1: Plan (human) -->
+  <rect class="human-box" x="100" y="50" width="180" height="70" rx="6"/>
+  <text x="190" y="82" text-anchor="middle" class="box-text">Plan</text>
+  <text x="190" y="101" text-anchor="middle" class="box-sub">Align on approach</text>
+  <g class="human-icon" transform="translate(266, 62)">
+    <circle cx="0" cy="-5" r="3.5" stroke-width="1.5"/>
+    <path d="M -6 5 Q 0 0 6 5" fill="none" stroke-width="1.5"/>
+  </g>
+
+  <!-- Row 1, Col 2: Execute (AI) -->
+  <rect class="ai-box" x="470" y="50" width="180" height="70" rx="6"/>
+  <text x="560" y="82" text-anchor="middle" class="box-text">Execute</text>
+  <text x="560" y="101" text-anchor="middle" class="box-sub">Agent runs</text>
+  <g class="ai-icon" transform="translate(636, 62)">
+    <rect x="-5" y="-5" width="10" height="10" rx="2" fill="none" stroke-width="1.5"/>
+    <line x1="-5" y1="-2" x2="-8" y2="-2" stroke-width="1.5"/>
+    <line x1="-5" y1="2"  x2="-8" y2="2"  stroke-width="1.5"/>
+    <line x1="5"  y1="-2" x2="8"  y2="-2" stroke-width="1.5"/>
+    <line x1="5"  y1="2"  x2="8"  y2="2"  stroke-width="1.5"/>
+  </g>
+
+  <!-- Row 2, Col 1: Test (human, manual) -->
+  <rect class="human-box" x="100" y="190" width="180" height="70" rx="6"/>
+  <text x="190" y="222" text-anchor="middle" class="box-text">Test</text>
+  <text x="190" y="241" text-anchor="middle" class="box-sub">Manual checks</text>
+  <g class="human-icon" transform="translate(266, 202)">
+    <circle cx="0" cy="-5" r="3.5" stroke-width="1.5"/>
+    <path d="M -6 5 Q 0 0 6 5" fill="none" stroke-width="1.5"/>
+  </g>
+
+  <!-- Row 2, Col 2: Review (human) -->
+  <rect class="human-box" x="470" y="190" width="180" height="70" rx="6"/>
+  <text x="560" y="222" text-anchor="middle" class="box-text">Review</text>
+  <text x="560" y="241" text-anchor="middle" class="box-sub">Check output</text>
+  <g class="human-icon" transform="translate(636, 202)">
+    <circle cx="0" cy="-5" r="3.5" stroke-width="1.5"/>
+    <path d="M -6 5 Q 0 0 6 5" fill="none" stroke-width="1.5"/>
+  </g>
+
+  <!-- Main flow arrows -->
+  <!-- Plan → Execute (straight right, row 1) -->
+  <path class="arrow" d="M 280 85 L 470 85"/>
+
+  <!-- Execute → Review (straight down, right column) -->
+  <path class="arrow" d="M 560 120 L 560 190"/>
+
+  <!-- Review → Test (straight left, row 2) -->
+  <path class="arrow" d="M 470 225 L 280 225"/>
+
+  <!-- Feedback loops (dashed) -->
+  <!-- Test → Plan (straight up, left column) -->
+  <path class="back-arrow" d="M 160 190 L 160 120"/>
+
+  <!-- Review → Execute (straight up, right column) -->
+  <path class="back-arrow" d="M 590 190 L 590 120"/>
+</svg>
