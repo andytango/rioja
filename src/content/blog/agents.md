@@ -1,12 +1,14 @@
 ---
 title: "AGENTS.md"
-description: "How I use AI to accelerate development while maintaining rigour and quality"
+description: "How I use AI to accelerate development while maintaining rigour and quality."
 pubDate: 2026-02-03
 # draft: true
 author: "Andrew Hall"
 ---
 
-It has become common practice to include an AGENTS.md or CLAUDE.md file in a repository to steer AI coding assistants. But while the mechanism is well-known, the content often lacks direction. With well-published limits on how much context an LLM can effectively prioritise, the decision of what to include in these files becomes a resource allocation problem.
+It has become common practice to include an AGENTS.md or CLAUDE.md file in a repository to steer AI coding assistants. But while the mechanism is well-known, the content often lacks direction. With [well-published limits](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) on how much context an LLM can effectively prioritise, the decision of what to include in these files becomes a resource allocation problem.
+
+I maintain a [set of shared guidelines](https://github.com/andytango/common) that I use across projects. These consist of a base set of rules that applies universally, alongside language-specific guidelines that inherit from and extend the base. This post covers some of the patterns from those guidelines and the reasoning behind them.
 
 What I chose to include in my guidelines is not a matter of taste. I don't use these files to enforce arbitrary style preferences like tabs versus spaces. Instead, every rule is an optimisation for a specific objective: agent autonomy.
 
