@@ -5,9 +5,9 @@ pubDate: 2026-02-21
 author: "Andrew Hall"
 ---
 
-In the last 12 months, I have built an offline-first mobile app for the construction industry, created the APIs and an "App Store" for third-party integrations into a massive e-commerce platform, developed various tools for LLM-driven analysis of unstructured data, and, for fun, built a WebRTC-based TTY terminal that is slightly more reliable than SSH.
+In the last 12 months, I have built an offline-first mobile app for the construction industry, worked on the APIs and an "App Store" for third-party integrations into a massive e-commerce platform, developed various tools for LLM-driven analysis of unstructured data, and, for fun, built a WebRTC-based TTY terminal that is slightly more reliable than SSH.
 
-Throughout all of this, I have had a front-row seat to the rise of AI coding. I've also watched the surrounding circus: influencers declaring that "coding is dead," tech leaders banking on miraculous productivity gains, and a pervasive fear across the industry that anyone not using AI will be left behind by their competitors. I will admit that I have been tempted by the promise of true delegation, hoping to have AI agents build out my designs while I go out for coffee, turning features that would take hours into a matter of minutes.
+Throughout all of this, I have had a front-row seat to the rise of AI coding. I've also watched the surrounding circus: influencers declaring that "coding is dead," tech leaders banking on miraculous productivity gains, and a pervasive fear across the industry that anyone not using AI will be left behind by their competitors. I will admit that I have been tempted by the promise of true delegation, hoping to have AI agents build out my designs while I go out for coffee, and turning around features that would have previously taken hours in a matter of minutes.
 
 So, should we all drop our IDEs and surrender our keyboards to Claude, Codex, and OpenCode? (Sorry, Gemini CLI, you've let me down too many times now).
 
