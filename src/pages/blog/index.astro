@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../components/Layout.astro";
 import PageHeading from "../../components/PageHeading.astro";
 import BackLink from "../../components/BackLink.astro";
+import { Rss } from "@lucide/astro";
 
 const allPosts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
@@ -24,7 +25,17 @@ const sortedPosts = allPosts.sort(
             <nav class="mb-8">
                 <BackLink href="/" text="Home" />
             </nav>
-            <PageHeading text="Blog" />
+            <div class="flex items-center justify-between">
+                <PageHeading text="Blog" />
+                <a
+                    href="/rss.xml"
+                    class="flex items-center gap-1.5 text-sm font-mono text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
+                    title="RSS feed"
+                >
+                    <Rss size={16} />
+                    <span>RSS</span>
+                </a>
+            </div>
         </header>
 
         <!-- Blog Posts List -->
