@@ -1,0 +1,53 @@
+name: Blog Syndication
+
+on:
+  schedule:
+    # Run every Monday at 09:00 UTC (max 1 post per week)
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Enable dry run mode (dump payloads, no API calls)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Syndicate oldest unsyndicated post
+        env:
+          BLOG_DIR: src/content/blog
+          SITE_URL: https://www.rioja.io
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
+          DRY_RUN: ${{ inputs.dry_run || vars.DRY_RUN || 'false' }}
+        run: node .github/scripts/syndicate.mjs
+
+      - name: Commit syndication marker
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No frontmatter changes to commit."
+          else
+            git add src/content/blog/
+            git commit -m "chore: mark post as syndicated [skip ci]"
+            git push
+          fi
