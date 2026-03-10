@@ -234,14 +234,15 @@ async function postToTwitter({ title, description, canonicalUrl }) {
   const tweetUrl = "https://api.x.com/2/tweets";
   const payload = { text };
 
+  const auth = buildOAuthHeader("POST", tweetUrl, {}, apiKey, apiSecret, accessToken, accessSecret);
+
   if (isDryRun()) {
     log("Twitter", "DRY RUN payload:");
-    console.log(JSON.stringify({ platform: "twitter", url: tweetUrl, payload }, null, 2));
+    console.log(JSON.stringify({ platform: "twitter", url: tweetUrl, payload, oauthHeader: auth }, null, 2));
     return;
   }
 
   const body = JSON.stringify(payload);
-  const auth = buildOAuthHeader("POST", tweetUrl, {}, apiKey, apiSecret, accessToken, accessSecret);
 
   const result = await jsonFetch(tweetUrl, {
     method: "POST",
