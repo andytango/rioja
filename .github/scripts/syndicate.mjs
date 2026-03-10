@@ -58,6 +58,10 @@ function isDryRun() {
   return process.env.DRY_RUN === "true";
 }
 
+function isProduction() {
+  return (process.env.SYNDICATION_ENV || "production") === "production";
+}
+
 function log(platform, message) {
   console.log(`[${platform}] ${message}`);
 }
@@ -399,7 +403,10 @@ async function main() {
   const blogDir = process.env.BLOG_DIR || "src/content/blog";
 
   console.log(`Scanning ${blogDir} for unsyndicated posts...`);
-  if (isDryRun()) console.log("DRY RUN mode enabled: no APIs will be called, payloads will be dumped.\n");
+  console.log(`Environment: ${process.env.SYNDICATION_ENV || "production"}`);
+  if (isDryRun()) console.log("DRY RUN mode enabled: no APIs will be called, payloads will be dumped.");
+  if (!isProduction()) console.log("Non-production: frontmatter will NOT be updated.\n");
+  else console.log("");
 
   const post = findNextUnsyndicated(blogDir);
 
@@ -446,9 +453,13 @@ async function main() {
     }
   }
 
-  // Mark as syndicated if Medium succeeded (or if in dry run mode, skip marking)
+  // Mark as syndicated if Medium succeeded
+  // Skip marking in dry run mode and non-production environments (e.g. staging)
+  // so the post remains eligible for syndication in production later
   if (isDryRun()) {
     log("Frontmatter", `DRY RUN: would mark ${filePath} as syndicated`);
+  } else if (!isProduction()) {
+    log("Frontmatter", `skipped marking (env: ${process.env.SYNDICATION_ENV}): post remains unsyndicated for production`);
   } else if (mediumSuccess) {
     markAsSyndicated(filePath, raw);
   }

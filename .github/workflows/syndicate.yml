@@ -6,6 +6,13 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch:
     inputs:
+      environment:
+        description: 'Target environment (staging uses test accounts, production uses real accounts)'
+        type: choice
+        options:
+          - staging
+          - production
+        default: staging
       dry_run:
         description: 'Enable dry run mode (dump payloads, no API calls)'
         type: boolean
@@ -17,6 +24,7 @@ permissions:
 jobs:
   syndicate:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'production' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -38,9 +46,11 @@ jobs:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
           DRY_RUN: ${{ inputs.dry_run || vars.DRY_RUN || 'false' }}
+          SYNDICATION_ENV: ${{ inputs.environment || 'production' }}
         run: node .github/scripts/syndicate.mjs
 
       - name: Commit syndication marker
+        if: ${{ (inputs.environment || 'production') == 'production' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
