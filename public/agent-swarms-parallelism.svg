@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" role="img" aria-label="Parallelism matrix showing seven concurrent agent streams">
+  <title>Parallelism matrix: all seven streams can launch simultaneously</title>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .term-border { stroke: currentColor; fill: none; stroke-width: 1.5; opacity: 0.3; }
+      .term-bg     { fill: currentColor; opacity: 0.03; }
+      .title-text  { font-size: 13px; font-weight: 600; }
+      .header-text { font-size: 12px; font-weight: 600; opacity: 0.7; }
+      .cell-text   { font-size: 12px; }
+      .stream-label{ font-size: 13px; font-weight: 600; }
+      .accent      { fill: rgb(217, 119, 6); }
+      .constraint  { font-size: 11px; opacity: 0.6; font-style: italic; }
+      .table-line  { stroke: currentColor; stroke-width: 1; opacity: 0.15; }
+      .footer-text { font-size: 12px; font-weight: 500; }
+      .check       { fill: rgb(34, 197, 94); font-size: 13px; }
+    </style>
+  </defs>
+
+  <!-- Terminal window -->
+  <rect class="term-bg" x="0" y="0" width="920" height="460" rx="10"/>
+  <rect class="term-border" x="0" y="0" width="920" height="460" rx="10"/>
+
+  <!-- Title -->
+  <text x="460" y="22" text-anchor="middle" class="title-text">Parallelism Matrix</text>
+
+  <!-- Column positions -->
+  <!-- Stream: 40-100, Can run with: 110-340, Constraint: 350-890 -->
+
+  <!-- Table header -->
+  <text x="70" y="72" text-anchor="middle" class="header-text">Stream</text>
+  <text x="225" y="72" text-anchor="middle" class="header-text">Can run with</text>
+  <text x="620" y="72" text-anchor="middle" class="header-text">Constraint</text>
+
+  <!-- Header underline -->
+  <line class="table-line" x1="30" y1="82" x2="890" y2="82" style="opacity: 0.3"/>
+
+  <!-- Row A -->
+  <text x="70" y="112" text-anchor="middle" class="stream-label accent">A</text>
+  <text x="225" y="112" text-anchor="middle" class="cell-text">B, C, D, E, F, G</text>
+  <text x="620" y="112" text-anchor="middle" class="constraint">--</text>
+  <line class="table-line" x1="30" y1="124" x2="890" y2="124"/>
+
+  <!-- Row B -->
+  <text x="70" y="154" text-anchor="middle" class="stream-label accent">B</text>
+  <text x="225" y="154" text-anchor="middle" class="cell-text">A, C, D, E, F</text>
+  <text x="620" y="154" text-anchor="middle" class="constraint">--</text>
+  <line class="table-line" x1="30" y1="166" x2="890" y2="166"/>
+
+  <!-- Row C -->
+  <text x="70" y="196" text-anchor="middle" class="stream-label accent">C</text>
+  <text x="225" y="196" text-anchor="middle" class="cell-text">A, B, D, E, F, G</text>
+  <text x="620" y="196" text-anchor="middle" class="constraint">--</text>
+  <line class="table-line" x1="30" y1="208" x2="890" y2="208"/>
+
+  <!-- Row D -->
+  <text x="70" y="238" text-anchor="middle" class="stream-label accent">D</text>
+  <text x="225" y="238" text-anchor="middle" class="cell-text">A, B, C, E, F, G</text>
+  <text x="620" y="238" text-anchor="middle" class="constraint">Shares en.source.json with E (different sections, no conflict)</text>
+  <line class="table-line" x1="30" y1="250" x2="890" y2="250"/>
+
+  <!-- Row E -->
+  <text x="70" y="280" text-anchor="middle" class="stream-label accent">E</text>
+  <text x="225" y="280" text-anchor="middle" class="cell-text">A, B, C, D, F, G</text>
+  <text x="620" y="280" text-anchor="middle" class="constraint">Shares en.source.json with D (different sections, no conflict)</text>
+  <line class="table-line" x1="30" y1="292" x2="890" y2="292"/>
+
+  <!-- Row F -->
+  <text x="70" y="322" text-anchor="middle" class="stream-label accent">F</text>
+  <text x="225" y="322" text-anchor="middle" class="cell-text">A, B, C, D, E, G</text>
+  <text x="620" y="322" text-anchor="middle" class="constraint">--</text>
+  <line class="table-line" x1="30" y1="334" x2="890" y2="334"/>
+
+  <!-- Row G -->
+  <text x="70" y="364" text-anchor="middle" class="stream-label accent">G</text>
+  <text x="225" y="364" text-anchor="middle" class="cell-text">A, C, D, E, F</text>
+  <text x="620" y="364" text-anchor="middle" class="constraint">Issue #10 deferred; #13 touches en.source.json (different section)</text>
+  <line class="table-line" x1="30" y1="376" x2="890" y2="376"/>
+
+  <!-- Vertical column separators -->
+  <line class="table-line" x1="110" y1="56" x2="110" y2="376"/>
+  <line class="table-line" x1="340" y1="56" x2="340" y2="376"/>
+
+  <!-- Footer -->
+  <text x="70" y="416" class="footer-text check">&#x2713;</text>
+  <text x="88" y="416" class="footer-text">All 7 streams can launch simultaneously.</text>
+  <text x="88" y="436" class="constraint">Issue #10 is deferred to a follow-up PR.</text>
+</svg>
