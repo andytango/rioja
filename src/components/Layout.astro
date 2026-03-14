@@ -5,9 +5,12 @@ import ThemeToggle from "./ThemeToggle.astro";
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: "website" | "article";
 }
 
-const { title, description = "Andrew Hall - Technologist and entrepreneur" } = Astro.props;
+const { title, description = "Andrew Hall - Technologist and entrepreneur", image = "/portrait.webp", type = "website" } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 ---
 
 <!doctype html>
@@ -21,6 +24,19 @@ const { title, description = "Andrew Hall - Technologist and entrepreneur" } = A
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="alternate" type="application/rss+xml" title="rioja" href="/rss.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={new URL(image, canonicalUrl.origin).href} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, canonicalUrl.origin).href} />
 
     <!-- Prevent flash of wrong theme -->
     <script is:inline>

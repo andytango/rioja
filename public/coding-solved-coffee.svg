@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="cf-title cf-desc">
+  <title id="cf-title">Coffee and a book</title>
+  <desc id="cf-desc">A cup of coffee with steam rising beside an open book</desc>
+  <defs>
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" result="noise" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#1a1008" flood-opacity="0.2"/>
+    </filter>
+    <filter id="shadow-sm">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#1a1008" flood-opacity="0.15"/>
+    </filter>
+    <radialGradient id="coffee-surface" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5a3820" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#3a2010" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#2a1808" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Saucer shadow -->
+  <ellipse cx="320" cy="342" rx="105" ry="20" fill="#8a7858" opacity="0.15"/>
+
+  <!-- Saucer -->
+  <g filter="url(#shadow-sm)">
+    <ellipse cx="320" cy="335" rx="100" ry="20" fill="#e8dcc8" stroke="#b8a880" stroke-width="2" filter="url(#paper)"/>
+    <!-- Saucer inner ring -->
+    <ellipse cx="320" cy="334" rx="70" ry="14" fill="none" stroke="#c8b898" stroke-width="1" opacity="0.5"/>
+    <!-- Saucer rim highlight -->
+    <ellipse cx="320" cy="332" rx="98" ry="16" fill="none" stroke="#f4edd8" stroke-width="0.5" opacity="0.3"/>
+  </g>
+
+  <!-- Cup -->
+  <g filter="url(#shadow)">
+    <!-- Cup body -->
+    <path d="
+      M 255 225
+      L 260 320
+      Q 268 338 320 338
+      Q 372 338 380 320
+      L 385 225
+      Z
+    " fill="#e8dcc8" stroke="#b8a880" stroke-width="2" filter="url(#paper)"/>
+
+    <!-- Cup inner shadow -->
+    <path d="
+      M 262 230
+      L 265 235
+      Q 290 240 320 240
+      Q 350 240 375 235
+      L 378 230
+    " fill="#d4c4a8" opacity="0.3"/>
+
+    <!-- Coffee surface -->
+    <ellipse cx="320" cy="232" rx="60" ry="13" fill="url(#coffee-surface)" stroke="#3a2010" stroke-width="0.5"/>
+    <!-- Coffee highlight -->
+    <ellipse cx="310" cy="229" rx="20" ry="5" fill="#6a4828" opacity="0.3"/>
+
+    <!-- Cup rim -->
+    <ellipse cx="320" cy="225" rx="65" ry="14" fill="#e8dcc8" stroke="#b8a880" stroke-width="2" filter="url(#paper)"/>
+    <!-- Rim inner edge -->
+    <ellipse cx="320" cy="226" rx="60" ry="12" fill="none" stroke="#c8b898" stroke-width="1"/>
+    <!-- Rim highlight -->
+    <ellipse cx="320" cy="223" rx="63" ry="12" fill="none" stroke="#f4edd8" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Handle -->
+    <path d="M 385 250 Q 425 248 428 278 Q 430 308 385 310" fill="none" stroke="#b8a880" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 385 253 Q 420 252 422 278 Q 424 304 385 306" fill="none" stroke="#e8dcc8" stroke-width="3" stroke-linecap="round" filter="url(#paper)"/>
+  </g>
+
+  <!-- Steam -->
+  <g opacity="0.2">
+    <path d="M 300 210 Q 295 190 302 172 Q 309 154 302 135 Q 295 118 300 100" fill="none" stroke="#8a7a60" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 320 205 Q 315 183 322 163 Q 329 143 322 123 Q 315 105 320 85" fill="none" stroke="#8a7a60" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 340 210 Q 335 190 342 172 Q 349 154 342 135 Q 335 118 340 100" fill="none" stroke="#8a7a60" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Open book -->
+  <g filter="url(#shadow)">
+    <!-- Book cover (visible underneath) -->
+    <path d="M 490 330 L 488 178 Q 570 165 610 175 L 612 332" fill="#4a3828" stroke="#3a2818" stroke-width="1.5" filter="url(#paper)" opacity="0.6"/>
+    <path d="M 610 175 Q 650 165 730 178 L 732 332" fill="#4a3828" stroke="#3a2818" stroke-width="1.5" filter="url(#paper)" opacity="0.6"/>
+
+    <!-- Left page -->
+    <path d="M 495 328 L 493 182 Q 568 170 608 180 L 608 330 Q 570 324 495 328 Z" fill="#f4edd8" stroke="#c8b890" stroke-width="1.5" filter="url(#paper)"/>
+    <!-- Page curl shadow -->
+    <path d="M 495 328 L 493 182 Q 500 180 510 180 L 510 326" fill="#e8dcc0" opacity="0.3"/>
+
+    <!-- Right page -->
+    <path d="M 608 180 Q 648 170 725 182 L 727 330 Q 648 324 608 330 Z" fill="#f8f2e0" stroke="#c8b890" stroke-width="1.5" filter="url(#paper)"/>
+
+    <!-- Spine -->
+    <line x1="608" y1="178" x2="608" y2="332" stroke="#3a2818" stroke-width="3"/>
+    <line x1="609" y1="180" x2="609" y2="330" stroke="#5a4838" stroke-width="1" opacity="0.4"/>
+
+    <!-- Text lines - left page -->
+    <g opacity="0.15">
+      <line x1="510" y1="205" x2="592" y2="203" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="220" x2="588" y2="218" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="235" x2="595" y2="233" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="250" x2="585" y2="248" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="265" x2="592" y2="263" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="280" x2="580" y2="278" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="295" x2="590" y2="293" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="510" y1="310" x2="575" y2="308" stroke="#3a3028" stroke-width="1.2"/>
+    </g>
+
+    <!-- Text lines - right page -->
+    <g opacity="0.15">
+      <line x1="622" y1="203" x2="710" y2="205" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="218" x2="705" y2="220" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="233" x2="712" y2="235" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="248" x2="700" y2="250" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="263" x2="708" y2="265" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="278" x2="695" y2="280" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="293" x2="705" y2="295" stroke="#3a3028" stroke-width="1.5"/>
+      <line x1="622" y1="308" x2="690" y2="310" stroke="#3a3028" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>
