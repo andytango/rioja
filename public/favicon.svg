@@ -13,16 +13,6 @@
         <pattern id="scanlines" patternUnits="userSpaceOnUse" width="4" height="4">
             <rect x="0" y="0" width="4" height="2" fill="#000000" opacity="0.3"/>
         </pattern>
-    </defs>
-    <rect x="18" y="18" width="92" height="92" rx="2" fill="url(#scanlines)"/>
-
-    <!-- Terminal Text: >_ -->
-    <text x="34" y="78" font-family="monospace" font-size="48" font-weight="bold" fill="#d97706" opacity="0.95">
-        &gt;_
-    </text>
-
-    <!-- Subtle glow effect -->
-    <defs>
         <filter id="glow">
             <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
             <feMerge>
@@ -31,7 +21,15 @@
             </feMerge>
         </filter>
     </defs>
-    <text x="34" y="78" font-family="monospace" font-size="48" font-weight="bold" fill="#fbbf24" filter="url(#glow)" opacity="0.6">
-        &gt;_
-    </text>
+    <rect x="18" y="18" width="92" height="92" rx="2" fill="url(#scanlines)"/>
+
+    <!-- Terminal prompt >_ using paths (no text/font dependency) -->
+    <!-- ">" chevron -->
+    <g filter="url(#glow)" opacity="0.6">
+        <polygon points="34,46 56,64 34,82" fill="none" stroke="#fbbf24" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+        <rect x="62" y="76" width="28" height="7" rx="2" fill="#fbbf24"/>
+    </g>
+    <!-- Main layer on top -->
+    <polygon points="34,46 56,64 34,82" fill="none" stroke="#d97706" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" opacity="0.95"/>
+    <rect x="62" y="76" width="28" height="7" rx="2" fill="#d97706" opacity="0.95"/>
 </svg>

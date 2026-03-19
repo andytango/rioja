@@ -2,14 +2,14 @@
 import "../styles/global.css";
 import Portrait from "../components/Portrait.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
-import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
+import { Linkedin, Github, User, BookOpen, FileText } from "@lucide/astro";
 ---
 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
 
@@ -127,7 +127,7 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
             </div>
             <div class="text-center mt-4">
                 <div
-                    class="grid grid-cols-2 sm:grid-cols-4 max-w-fit mx-auto gap-3"
+                    class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 max-w-fit mx-auto gap-3"
                 >
                     <a
                         href="/blog"
@@ -142,6 +142,15 @@ import { Linkedin, Github, User, BookOpen } from "@lucide/astro";
                     >
                         <User size={20} class="shrink-0" />
                         <span>About me</span>
+                    </a>
+                    <a
+                        href="https://curvit.me/@andytango"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-amber-600 text-amber-700 font-semibold rounded-lg hover:bg-amber-600 hover:text-orange-100 hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:ring-2 focus-visible:ring-amber-950 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-100 dark:border-amber-400 dark:text-amber-400 dark:hover:bg-amber-400 dark:hover:text-stone-900 dark:focus-visible:ring-orange-100 dark:focus-visible:ring-offset-stone-900 whitespace-nowrap"
+                    >
+                        <FileText size={20} class="shrink-0" />
+                        <span>CV / Resume</span>
                     </a>
                     <a
                         href="https://www.linkedin.com/in/a-hall2"
