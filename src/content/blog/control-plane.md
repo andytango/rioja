@@ -26,7 +26,7 @@ Last summer I started building my own agent harness. I abandoned it fairly quick
 
 In December I built a mobile, web-based TTY: a WebRTC-based terminal reachable from any browser. The brief there was remote-first: run the agent on a home server or a cloud VM and reach it from anywhere. It worked, and reconnecting was more reliable than raw SSH. But a terminal is fundamentally not a mobile experience. Even with a good native SSH client, juggling several sessions on a phone is awkward, and reconnection logic is fiddly. It was remote-first, but it was never going to be mobile-friendly.
 
-I also tried Google's Antigravity. Its agent-manager concept was genuinely good, but it had no worktree support, and I could not use it with my own Claude Code quota. The tool I came closest to living in was [Zed's agent panel](https://zed.dev/blog/parallel-agents). It is excellent: lightweight, ergonomic, worktree-aware, and built on the Agent Client Protocol. But it is a desktop application, so there is no mobile story, and it follows Zed's roadmap, not mine.
+I also tried Google's Antigravity. Its agent-manager concept was genuinely good, but it had no worktree support, and I could not use it with my own Claude Code quota. The tool I came closest to living in was [Zed's agent panel](https://zed.dev/blog/parallel-agents). It is excellent: lightweight, ergonomic, worktree-aware, and built on the [Agent Client Protocol](https://agentclientprotocol.com). But it is a desktop application, so there is no mobile story, and it follows Zed's roadmap, not mine.
 
 In parallel with all of this, I had been building my own web-based wrapper for the Gemini CLI. I had not yet discovered ACP, and I was stubbornly trying to avoid holding any state in my own application: the wrapper was a thin layer over Gemini and the file system, and nothing more. That constraint is exactly what broke. I learned, the hard way, that I could not wish state away. A streaming, local-first, web experience needs a custom client-server model built for it, and the server has to be stateful. It is the lesson that became the founding invariants of Agent Control Plane.
 
@@ -65,7 +65,7 @@ In other words, rather than working out how to fit a coding agent into an IDE, I
 
 In parallel, I get to work out how my own [agentic coding workflows](/blog/vibe-mode) can be streamlined and enhanced by bespoke tooling. My hope is that it leads somewhere genuinely useful.
 
-Finally, the foundation. I built on the [Agent Client Protocol](https://zed.dev/acp), the open protocol co-driven by Zed Industries and JetBrains. ACP is what lets a single typed interface drive both Claude and Gemini, and it insulates me from any one vendor's direction. It was the right base precisely because my workflow keeps evolving, and it will not necessarily evolve in step with any single editor.
+Finally, the foundation. I built on the Agent Client Protocol, the open protocol co-driven by Zed Industries and JetBrains. ACP is what lets a single typed interface drive both Claude and Gemini, and it insulates me from any one vendor's direction. It was the right base precisely because my workflow keeps evolving, and it will not necessarily evolve in step with any single editor.
 
 ## The founding invariants
 
