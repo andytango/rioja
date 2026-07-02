@@ -8,6 +8,8 @@ draft: false
 
 This is the first of three posts about a tool I have been building called Agent Control Plane. It is a self-hosted web interface for driving coding agents (Claude Code and Gemini CLI) from any device, and it has quietly become the way I do most of my delegation. This part is about why it exists.
 
+![Agent Control Plane: a coding session in the chat view, showing the session list, the agent's thinking, its tool calls, and a diff of a new file](/control-plane-screenshot.png)
+
 I should start with the obvious objection, because it is the one I had myself: the agents already ship perfectly good interfaces. Claude Code and Gemini CLI both run happily in a terminal. So why build anything?
 
 ## Coding is solved; delegation is not
@@ -51,7 +53,7 @@ Laid side by side, the gaps form a clear pattern. Each tool was missing a differ
 
 Having tried the alternatives, it was clearly worth trying to build something custom.
 
-Since building it, I have found others arriving at the same idea, which is reassuring rather than discouraging. The closest in spirit is Theo's [T3 Code](https://github.com/t3-oss/t3-code), an open-source GUI for driving coding agents, with worktrees, bring-your-own keys, and a proper diff viewer; but it is an Electron desktop app, not something built to live on a phone. At the other end of the scale, [Coder](https://coder.com/solutions/agents) runs coding agents as a self-hosted, governed platform for enterprise teams: powerful, but heavyweight by design and browser-bound. Both confirm the direction. Neither is the lightweight, mobile-first, offline-capable tool for a single operator that I was after.
+Since building it, I have found others arriving at the same idea, which is reassuring rather than discouraging. The closest is [Orca](https://www.onorca.dev/), an open-source agent development environment that runs coding agents in parallel across isolated worktrees, with your own subscriptions, and can even drive them on a remote box. Theo's [T3 Code](https://github.com/t3-oss/t3-code) is a similar idea in an Electron desktop app, with no phone story. [Coder](https://coder.com/solutions/agents) sits at the other end of the scale: coding agents as a self-hosted, governed platform for enterprise teams. All three confirm the direction. None is quite what I wanted, though. Orca is a full IDE, splits, terminals, an embedded browser, PDF preview, and its phone app is a companion to the desktop rather than a client in its own right. Coder is team infrastructure. I was after something lighter and narrower: a chat-first tool for a single operator, designed for the phone rather than bolted onto it, and mine to steer.
 
 ## Agentic development from first principles
 
