@@ -71,5 +71,17 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin)
   <body class="bg-orange-100 text-amber-950 dark:bg-stone-900 dark:text-orange-100">
     <ThemeToggle />
     <slot />
+    <!-- Per-screenshot light/dark toggle (delegated) -->
+    <script is:inline>
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest && e.target.closest(".shot-toggle");
+        if (!btn) return;
+        const fig = btn.closest(".shot");
+        if (!fig) return;
+        const pageDark = document.documentElement.classList.contains("dark");
+        const current = fig.dataset.theme || (pageDark ? "dark" : "light");
+        fig.dataset.theme = current === "dark" ? "light" : "dark";
+      });
+    </script>
   </body>
 </html>

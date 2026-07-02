@@ -6,9 +6,13 @@ author: "Andrew Hall"
 draft: false
 ---
 
-This is the first of three posts about a tool I have been building called Agent Control Plane. It is a self-hosted web interface for driving coding agents (Claude Code and Gemini CLI) from any device, and it has quietly become the way I do most of my delegation. This part is about why it exists.
+<figure class="shot shot-desktop">
+  <img class="shot-light" src="/control-plane-hero-light.png" alt="Agent Control Plane on the desktop: a coding session with the session list, the agent's thinking, its tool calls, and a diff" />
+  <img class="shot-dark" src="/control-plane-hero-dark.png" alt="" aria-hidden="true" />
+  <button class="shot-toggle" type="button" aria-label="Toggle light or dark screenshot">◐</button>
+</figure>
 
-![Agent Control Plane: a coding session in the chat view, showing the session list, the agent's thinking, its tool calls, and a diff of a new file](/control-plane-screenshot.png)
+This is the first of three posts about a tool I have been building called Agent Control Plane. It is a self-hosted web interface for driving coding agents (Claude Code and Gemini CLI) from any device, and it has quietly become the way I do most of my delegation. This part is about why it exists.
 
 I should start with the obvious objection, because it is the one I had myself: the agents already ship perfectly good interfaces. Claude Code and Gemini CLI both run happily in a terminal. So why build anything?
 
@@ -95,7 +99,18 @@ Together these split one system cleanly across three responsibilities: the brows
 
 One further invariant is about product, not architecture. **Device parity:** mobile is not a cut-down version of the desktop; it is a complete substitute, with no feature degradation. Tablet and desktop gain nothing in capability; they simply use the larger screen to show more at once. So I design the phone experience first and recombine those pieces into the denser layouts, never the other way round.
 
-<img class="phone" src="/control-plane-screenshot-mobile.png" alt="Agent Control Plane on a phone: the same chat session at mobile width, with nothing removed" />
+<div class="shot-pair">
+  <figure class="shot shot-phone">
+    <img class="shot-light" src="/control-plane-mobile-index-light.png" alt="The Agent Control Plane session list on a phone" />
+    <img class="shot-dark" src="/control-plane-mobile-index-dark.png" alt="" aria-hidden="true" />
+    <button class="shot-toggle" type="button" aria-label="Toggle light or dark screenshot">◐</button>
+  </figure>
+  <figure class="shot shot-phone">
+    <img class="shot-light" src="/control-plane-mobile-chat-light.png" alt="An Agent Control Plane chat session on a phone, the full experience at mobile width" />
+    <img class="shot-dark" src="/control-plane-mobile-chat-dark.png" alt="" aria-hidden="true" />
+    <button class="shot-toggle" type="button" aria-label="Toggle light or dark screenshot">◐</button>
+  </figure>
+</div>
 
 And the commitment that matters most for the rest of this series: **build deliberately naive first.** Naive in two senses. Naive in system design, resisting complexity and abstraction until something concrete demanded them. And naive in features, shipping the smallest thing that worked before reaching for the next.
 
