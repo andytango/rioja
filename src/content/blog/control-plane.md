@@ -95,6 +95,8 @@ Together these split one system cleanly across three responsibilities: the brows
 
 One further invariant is about product, not architecture. **Device parity:** mobile is not a cut-down version of the desktop; it is a complete substitute, with no feature degradation. Tablet and desktop gain nothing in capability; they simply use the larger screen to show more at once. So I design the phone experience first and recombine those pieces into the denser layouts, never the other way round.
 
+<img class="phone" src="/control-plane-screenshot-mobile.png" alt="Agent Control Plane on a phone: the same chat session at mobile width, with nothing removed" />
+
 And the commitment that matters most for the rest of this series: **build deliberately naive first.** Naive in two senses. Naive in system design, resisting complexity and abstraction until something concrete demanded them. And naive in features, shipping the smallest thing that worked before reaching for the next.
 
 This is just lean, iterative development: a skateboard before a motorcycle before a car, where each stage is a usable whole rather than a half-finished chassis. It works because the next step on the roadmap only truly reveals itself once the basic features are built and tested. You cannot plan it in the abstract; you have to use the thing. It was liberating to organise development around that practical reality rather than around marketing claims, vision boards, and investor decks.

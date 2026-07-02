@@ -68,6 +68,11 @@ body {
 	height: auto;
 }
 
+/* Phone screenshots: cap width so tall portrait shots don't dominate the column */
+.blog-content img.phone {
+	max-width: 320px;
+}
+
 /* Wide tables scroll within their own box instead of stretching the page */
 .blog-content table {
 	display: block;
