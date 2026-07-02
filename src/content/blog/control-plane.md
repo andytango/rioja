@@ -12,19 +12,19 @@ I should start with the obvious objection, because it is the one I had myself: t
 
 ## Coding is solved; delegation is not
 
-In a [previous post](/blog/coding-is-solved) I argued that coding, in the narrow sense of turning a precise specification into syntax, is essentially solved. And in [Vibe mode](/blog/vibe-mode) I laid out the modes I use to hand work to agents, from close supervision to full autonomy. Put those two ideas together and a conclusion falls out: if writing the code is no longer the constraint, then the constraint moves to everything around the code. Specifying the work, dispatching it, watching it, and deciding when to intervene. The skill is no longer typing; it is orchestration.
+In a [previous post](/blog/coding-is-solved) I argued that coding, in the narrow sense of turning a precise specification into syntax, is essentially solved. And in [Vibe mode](/blog/vibe-mode) I laid out the modes I use to hand work to agents, from close supervision to full autonomy. Put those two ideas together and a conclusion falls out: if writing the code is no longer the constraint, then the constraint moves to everything around the code. Specifying the work, dispatching it, watching it, and deciding when to intervene.
 
-Once you accept that, the terminal looks like the wrong shape: it pins everything to one machine that I have to sit at. Part of that is fair. An agent on ambitious work needs me reachable, to catch design and architectural drift and make the calls only a human should. But reachable is not the same as desk-bound, and a phone handles that.
+Once you accept that, the terminal looks like the wrong shape: it pins everything to one machine that I have to sit at. Part of that is fair. An agent on ambitious work needs me available, to catch design and architectural drift and make the calls only a human should. But a phone keeps me reachable without tying me to a desk.
 
 The rest was just where the agent ran. It ran on my laptop, so the laptop had to stay awake to keep it going; I once carried it around the house, lid open, not because the agent needed me but to stop it stopping. The model calls are server-to-server anyway. The agent belongs on a server that never sleeps, and the laptop or phone is just a window onto it.
 
 ## The road here
 
-Agent Control Plane was not the first thing I tried. It was the last in a line of attempts, and each of the earlier ones taught me exactly one thing it was missing.
+Agent Control Plane was not the first thing I tried. It was the last in a line of attempts, and each of the earlier ones showed me something the eventual tool would need.
 
 Last summer I started building my own agent harness. I abandoned it fairly quickly, and the reason is itself a lesson: for a side project, building the agent is reinventing the wheel. The frontier labs are pouring enormous effort into their harnesses, and I was never going to keep pace. I was working at the wrong layer.
 
-In December I built a mobile, web-based TTY: a WebRTC-based terminal reachable from any browser. The brief there was remote-first: run the agent on a home server or a cloud VM and reach it from anywhere. It worked, and reconnecting was more reliable than raw SSH. But a terminal is fundamentally not a mobile experience. Even with a good native SSH client, juggling several sessions on a phone is awkward, and reconnection logic is fiddly. Remote-first, yes; mobile-friendly, never.
+In December I built a mobile, web-based TTY: a WebRTC-based terminal reachable from any browser. The brief there was remote-first: run the agent on a home server or a cloud VM and reach it from anywhere. It worked, and reconnecting was more reliable than raw SSH. But a terminal is fundamentally not a mobile experience. Even with a good native SSH client, juggling several sessions on a phone is awkward, and reconnection logic is fiddly. It was remote-first, but it was never going to be mobile-friendly.
 
 I also tried Google's Antigravity. Its agent-manager concept was genuinely good, but it had no worktree support, and I could not use it with my own Claude Code quota. The tool I came closest to living in was [Zed's agent panel](https://zed.dev/blog/parallel-agents). It is excellent: lightweight, ergonomic, worktree-aware, and built on the Agent Client Protocol. But it is a desktop application, so there is no mobile story, and it follows Zed's roadmap, not mine.
 
@@ -63,7 +63,7 @@ So that is where I decided to start. How much can you do from the agent chat win
 
 In other words, rather than working out how to fit a coding agent into an IDE, I am working out which tools and features the user genuinely needs alongside the chat view, and how to keep them inside it as much as possible, so the experience stays seamless.
 
-In parallel, I get to work out how my own [agentic coding workflows](/blog/vibe-mode) can be streamlined and enhanced by bespoke tooling. My hope is that it leads somewhere genuinely novel, and valuable.
+In parallel, I get to work out how my own [agentic coding workflows](/blog/vibe-mode) can be streamlined and enhanced by bespoke tooling. My hope is that it leads somewhere genuinely useful.
 
 Finally, the foundation. I built on the [Agent Client Protocol](https://zed.dev/acp), the open protocol co-driven by Zed Industries and JetBrains. ACP is what lets a single typed interface drive both Claude and Gemini, and it insulates me from any one vendor's direction. It was the right base precisely because my workflow keeps evolving, and it will not necessarily evolve in step with any single editor.
 
@@ -91,7 +91,7 @@ Together these split one system cleanly across three responsibilities: the brows
   <img src="/control-plane-dataflow.svg" alt="The read path and write path through Agent Control Plane" />
 </picture>
 
-One further invariant is about product, not architecture. **Device parity:** mobile is not the smaller sibling of the desktop but a complete substitute, with no feature degradation whatsoever; tablet and desktop gain nothing in capability, they simply use the larger screen to show more at once. So I design the phone experience first and recombine those pieces into the denser layouts, never the other way round.
+One further invariant is about product, not architecture. **Device parity:** mobile is not a cut-down version of the desktop; it is a complete substitute, with no feature degradation. Tablet and desktop gain nothing in capability; they simply use the larger screen to show more at once. So I design the phone experience first and recombine those pieces into the denser layouts, never the other way round.
 
 And the commitment that matters most for the rest of this series: **build deliberately naive first.** Naive in two senses. Naive in system design, resisting complexity and abstraction until something concrete demanded them. And naive in features, shipping the smallest thing that worked before reaching for the next.
 
@@ -101,7 +101,7 @@ That approach is not universal, though: it is calibrated to how much it costs to
 
 ## A development timeline
 
-Agent Control Plane itself was built in a single concentrated month. The first commit landed on 29 April 2026; by the end of May it had passed 475 commits and become the tool I reach for first. The shape of that month is the rest of this series in miniature.
+Agent Control Plane itself was built in a single concentrated month. The first commit landed on 29 April 2026; by the end of May it had passed 475 commits and become the tool I reach for first. The rest of this series follows the shape of that month.
 
 - **Late April: foundations.** The Leptos and Axum scaffold, the design system, and a first offline-first IndexedDB sync layer. A naive but complete skeleton.
 - **Early May: the core.** The migration to event sourcing, ACP integration, and per-session choice of agent (Claude or Gemini).
@@ -110,10 +110,10 @@ Agent Control Plane itself was built in a single concentrated month. The first c
 - **Late May: the feature surge.** The composer, port forwarding, file uploads, the file viewer and diff view, per-session model selection, and the three-pane workspace. This is the material of the next post.
 - **End of May: performance and polish.** Optimisation work as my own sessions grew large enough to hurt: streaming CPU, sidebar denormalisation, batched replay, and the move onto web workers. This is the material of the post after that.
 
-A month is not long, and that is the point. Once the foundations were right, the roadmap wrote itself out of daily use: features where the chat view hit an edge, performance work where the event log grew heavy.
+A month is not long, but once the foundations were right, the roadmap wrote itself out of daily use: features where the chat view hit an edge, performance work where the event log grew heavy.
 
 ## Where this goes next
 
-So that is the why. The bet is that as coding collapses into a commodity, the lasting value moves to the layer that directs the work, and that this layer should be device-independent, durable, asynchronous, and mine to steer. Built from first principles rather than bolted onto an IDE: outward from the chat, not inward from an editor, on a small set of invariants I committed to early.
+That is why Agent Control Plane exists. The bet is that as coding collapses into a commodity, the lasting value moves to the layer that directs the work, and that this layer should be device-independent, durable, asynchronous, and mine to steer. It is built from first principles on a small set of invariants I committed to early, starting from the chat view rather than retrofitting an IDE.
 
 The next two posts follow the two strands of what happened after the naive first version met daily use. The second is about features: how I found the edges of a purely agent-driven experience, where a plain chat transcript turned out to be the wrong surface, and added the smallest targeted tools to fix each one. The third is about performance: how a deliberately simple pipeline behaved as the session history filled up, and how benchmarking, rather than guesswork, decided what to optimise. In both cases the method was the same, and it is the method I trust most: start simple, watch closely, and let the evidence tell you where to spend.
