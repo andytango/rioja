@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 210" role="img" aria-labelledby="cc-title cc-desc">
+  <title id="cc-title">The components of Agent Control Plane</title>
+  <desc id="cc-desc">Five components across three zones. In the agent zone, an agent harness running Claude or Gemini. In the server zone, the backend, written in Rust with SQLite. In the browser zone, a sync worker, IndexedDB, and the UI.</desc>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .zone-title { font-size: 12px; font-weight: 600; text-anchor: middle; opacity: 0.75; }
+      .box-text { font-size: 13px; font-weight: 500; text-anchor: middle; }
+      .box-sub  { font-size: 10px; font-style: italic; text-anchor: middle; opacity: 0.72; }
+      .box-agent   { stroke: rgb(217,119,6);  fill: rgba(217,119,6,0.08);  stroke-width: 2; }
+      .box-server  { stroke: rgb(34,197,94);  fill: rgba(34,197,94,0.08);  stroke-width: 2; }
+      .box-browser { stroke: rgb(59,130,246); fill: rgba(59,130,246,0.08); stroke-width: 2; }
+      .zone-agent   { fill: rgba(217,119,6,0.04);  stroke: rgba(217,119,6,0.3);  stroke-width: 1; stroke-dasharray: 4,3; }
+      .zone-server  { fill: rgba(34,197,94,0.04);  stroke: rgba(34,197,94,0.3);  stroke-width: 1; stroke-dasharray: 4,3; }
+      .zone-browser { fill: rgba(59,130,246,0.04); stroke: rgba(59,130,246,0.3); stroke-width: 1; stroke-dasharray: 4,3; }
+      .link { fill: none; stroke: currentColor; stroke-width: 1.5; opacity: 0.45; }
+    </style>
+  </defs>
+
+  <!-- Zone backgrounds -->
+  <rect class="zone-agent"   x="14"  y="58" width="168" height="128" rx="9"/>
+  <rect class="zone-server"  x="200" y="58" width="168" height="128" rx="9"/>
+  <rect class="zone-browser" x="386" y="58" width="540" height="128" rx="9"/>
+
+  <text class="zone-title" x="98"  y="44">Agent</text>
+  <text class="zone-title" x="284" y="44">Server</text>
+  <text class="zone-title" x="656" y="44">Browser</text>
+
+  <!-- Connectors -->
+  <line class="link" x1="172" y1="123" x2="210" y2="123"/>
+  <line class="link" x1="358" y1="123" x2="396" y2="123"/>
+  <line class="link" x1="544" y1="123" x2="582" y2="123"/>
+  <line class="link" x1="730" y1="123" x2="768" y2="123"/>
+
+  <!-- Boxes -->
+  <rect class="box-agent"   x="24"  y="86" width="148" height="74" rx="6"/>
+  <text class="box-text" x="98" y="118">Agent harness</text>
+  <text class="box-sub"  x="98" y="135">Claude / Gemini</text>
+
+  <rect class="box-server"  x="210" y="86" width="148" height="74" rx="6"/>
+  <text class="box-text" x="284" y="118">Backend</text>
+  <text class="box-sub"  x="284" y="135">Rust + SQLite</text>
+
+  <rect class="box-browser" x="396" y="86" width="148" height="74" rx="6"/>
+  <text class="box-text" x="470" y="118">Sync worker</text>
+  <text class="box-sub"  x="470" y="135">syncs IDB &#8646; server</text>
+
+  <rect class="box-browser" x="582" y="86" width="148" height="74" rx="6"/>
+  <text class="box-text" x="656" y="118">IndexedDB</text>
+  <text class="box-sub"  x="656" y="135">events + outbox</text>
+
+  <rect class="box-browser" x="768" y="86" width="148" height="74" rx="6"/>
+  <text class="box-text" x="842" y="118">UI</text>
+  <text class="box-sub"  x="842" y="135">render the view</text>
+</svg>

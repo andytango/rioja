@@ -6,7 +6,8 @@ import BackLink from "../../components/BackLink.astro";
 import { Rss } from "@lucide/astro";
 
 const allPosts = await getCollection("blog", ({ data }) => {
-    return data.draft !== true;
+    // Drafts render in dev so they can be previewed, but never in a prod build.
+    return import.meta.env.PROD ? data.draft !== true : true;
 });
 
 // Sort posts by date, newest first

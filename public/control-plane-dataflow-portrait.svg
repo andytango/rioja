@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 700" role="img" aria-labelledby="cdp-title cdp-desc">
+  <title id="cdp-title">Agent Control Plane read and write paths</title>
+  <desc id="cdp-desc">Read path runs top to bottom: the agent produces events at the backend, which streams them over SSE to the sync worker, which saves them to IndexedDB, where a projection feeds the UI. Write path runs bottom to top: the UI enqueues a mutation to the outbox in IndexedDB, the sync worker drains it to the backend's mutation handler, which prompts the agent.</desc>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .box-text { font-size: 15px; font-weight: 500; text-anchor: middle; }
+      .box-sub  { font-size: 11px; font-style: italic; text-anchor: middle; opacity: 0.72; }
+      .edge  { font-size: 11px; opacity: 0.85; }
+      .box-agent   { stroke: rgb(217,119,6);  fill: rgba(217,119,6,0.08);  stroke-width: 2; }
+      .box-server  { stroke: rgb(34,197,94);  fill: rgba(34,197,94,0.08);  stroke-width: 2; }
+      .box-browser { stroke: rgb(59,130,246); fill: rgba(59,130,246,0.08); stroke-width: 2; }
+      .read  { fill: none; stroke: currentColor; stroke-width: 2;   marker-end: url(#arr); }
+      .write { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-dasharray: 5,3; opacity: 0.8; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 0.5, 8 3.5, 0 6.5" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- Boxes (stacked) -->
+  <rect class="box-agent"   x="96" y="40"  width="188" height="62" rx="6"/>
+  <text class="box-text" x="190" y="72">Agent harness</text>
+  <text class="box-sub"  x="190" y="90">Claude / Gemini</text>
+
+  <rect class="box-server"  x="96" y="168" width="188" height="62" rx="6"/>
+  <text class="box-text" x="190" y="200">Backend</text>
+  <text class="box-sub"  x="190" y="218">Rust + SQLite</text>
+
+  <rect class="box-browser" x="96" y="296" width="188" height="62" rx="6"/>
+  <text class="box-text" x="190" y="328">Sync worker</text>
+  <text class="box-sub"  x="190" y="346">drain &#183; apply</text>
+
+  <rect class="box-browser" x="96" y="424" width="188" height="62" rx="6"/>
+  <text class="box-text" x="190" y="456">IndexedDB</text>
+  <text class="box-sub"  x="190" y="474">events + outbox</text>
+
+  <rect class="box-browser" x="96" y="552" width="188" height="62" rx="6"/>
+  <text class="box-text" x="190" y="584">UI</text>
+  <text class="box-sub"  x="190" y="602">render the view</text>
+
+  <!-- Read arrows (down, solid, left of centre) -->
+  <path class="read" d="M 158 102 L 158 168"/>
+  <path class="read" d="M 158 230 L 158 296"/>
+  <path class="read" d="M 158 358 L 158 424"/>
+  <path class="read" d="M 158 486 L 158 552"/>
+  <text class="edge" x="150" y="139" text-anchor="end">events</text>
+  <text class="edge" x="150" y="267" text-anchor="end">SSE stream</text>
+  <text class="edge" x="150" y="395" text-anchor="end">save</text>
+  <text class="edge" x="150" y="523" text-anchor="end">projection</text>
+
+  <!-- Write arrows (up, dashed, right of centre) -->
+  <path class="write" d="M 222 168 L 222 102"/>
+  <path class="write" d="M 222 296 L 222 230"/>
+  <path class="write" d="M 222 424 L 222 358"/>
+  <path class="write" d="M 222 552 L 222 486"/>
+  <text class="edge" x="230" y="139" text-anchor="start">prompt</text>
+  <text class="edge" x="230" y="267" text-anchor="start">mutation</text>
+  <text class="edge" x="230" y="395" text-anchor="start">drain</text>
+  <text class="edge" x="230" y="523" text-anchor="start">outbox</text>
+
+  <!-- Legend -->
+  <line class="read"  x1="40" y1="648" x2="66" y2="648"/>
+  <text class="edge" x="72" y="651" text-anchor="start">read (agent &#8594; UI)</text>
+  <line class="write" x1="40" y1="674" x2="66" y2="674"/>
+  <text class="edge" x="72" y="677" text-anchor="start">write (UI &#8594; agent)</text>
+</svg>

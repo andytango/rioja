@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 320" role="img" aria-labelledby="cd-title cd-desc">
+  <title id="cd-title">Agent Control Plane read and write paths</title>
+  <desc id="cd-desc">The read path runs left to right: the agent (Claude or Gemini) produces events at the backend, which streams them over SSE to the sync worker, which saves them to IndexedDB, where a projection feeds the UI. The write path runs right to left: the UI enqueues a mutation to the outbox in IndexedDB, the sync worker drains it to the server's mutation handler, which accepts it and prompts the agent to process it.</desc>
+  <defs>
+    <style>
+      text { font-family: 'Berkeley Mono', monospace; fill: currentColor; }
+      .box-text { font-size: 13px; font-weight: 500; text-anchor: middle; }
+      .box-sub  { font-size: 10px; font-style: italic; text-anchor: middle; opacity: 0.72; }
+      .edge { font-size: 10px; text-anchor: middle; opacity: 0.85; }
+      .edge-l { font-size: 10px; text-anchor: start; opacity: 0.85; }
+      .box-agent   { stroke: rgb(217,119,6);  fill: rgba(217,119,6,0.08);  stroke-width: 2; }
+      .box-server  { stroke: rgb(34,197,94);  fill: rgba(34,197,94,0.08);  stroke-width: 2; }
+      .box-browser { stroke: rgb(59,130,246); fill: rgba(59,130,246,0.08); stroke-width: 2; }
+      .read  { fill: none; stroke: currentColor; stroke-width: 2;   marker-end: url(#arr); }
+      .write { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-dasharray: 5,3; opacity: 0.8; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 0.5, 8 3.5, 0 6.5" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- Read labels (above boxes) -->
+  <text class="edge" x="191" y="124">events</text>
+  <text class="edge" x="377" y="124">SSE stream</text>
+  <text class="edge" x="563" y="124">save</text>
+  <text class="edge" x="749" y="124">projection</text>
+
+  <!-- Boxes -->
+  <rect class="box-agent"   x="24"  y="140" width="148" height="90" rx="6"/>
+  <text class="box-text" x="98" y="180">Agent harness</text>
+  <text class="box-sub"  x="98" y="197">Claude / Gemini</text>
+
+  <rect class="box-server"  x="210" y="140" width="148" height="90" rx="6"/>
+  <text class="box-text" x="284" y="180">Backend</text>
+  <text class="box-sub"  x="284" y="197">Rust + SQLite</text>
+
+  <rect class="box-browser" x="396" y="140" width="148" height="90" rx="6"/>
+  <text class="box-text" x="470" y="180">Sync worker</text>
+  <text class="box-sub"  x="470" y="197">drain &#183; apply</text>
+
+  <rect class="box-browser" x="582" y="140" width="148" height="90" rx="6"/>
+  <text class="box-text" x="656" y="180">IndexedDB</text>
+  <text class="box-sub"  x="656" y="197">events + outbox</text>
+
+  <rect class="box-browser" x="768" y="140" width="148" height="90" rx="6"/>
+  <text class="box-text" x="842" y="180">UI</text>
+  <text class="box-sub"  x="842" y="197">render the view</text>
+
+  <!-- Read arrows (left to right, solid, near box tops) -->
+  <path class="read" d="M 172 165 L 210 165"/>
+  <path class="read" d="M 358 165 L 396 165"/>
+  <path class="read" d="M 544 165 L 582 165"/>
+  <path class="read" d="M 730 165 L 768 165"/>
+
+  <!-- Write arrows (right to left, dashed, near box bottoms) -->
+  <path class="write" d="M 210 205 L 172 205"/>
+  <path class="write" d="M 396 205 L 358 205"/>
+  <path class="write" d="M 582 205 L 544 205"/>
+  <path class="write" d="M 768 205 L 730 205"/>
+
+  <!-- Write labels (below boxes) -->
+  <text class="edge" x="191" y="256">prompt</text>
+  <text class="edge" x="377" y="256">mutation</text>
+  <text class="edge" x="563" y="256">drain</text>
+  <text class="edge" x="749" y="256">outbox</text>
+
+  <!-- Legend -->
+  <line class="read"  x1="288" y1="298" x2="318" y2="298"/>
+  <text class="edge-l" x="326" y="301">read path (agent &#8594; UI)</text>
+  <line class="write" x1="560" y1="298" x2="590" y2="298"/>
+  <text class="edge-l" x="598" y="301">write path (UI &#8594; agent)</text>
+</svg>

@@ -43,13 +43,15 @@ body {
 
 /* Paragraphs containing only images/svgs use wider space */
 .blog-content p:has(> img:only-child),
-.blog-content p:has(> svg:only-child) {
+.blog-content p:has(> svg:only-child),
+.blog-content p:has(> picture:only-child) {
 	max-width: 56rem !important; /* 896px */
 }
 
 /* Images use wider space */
 .blog-content img,
-.blog-content svg {
+.blog-content svg,
+.blog-content picture {
 	max-width: 56rem; /* 896px */
 	margin-left: auto;
 	margin-right: auto;
@@ -57,12 +59,31 @@ body {
 	height: auto;
 }
 
+/* Responsive diagrams: <picture> swaps a landscape SVG for a portrait one on mobile */
+.blog-content picture {
+	display: block;
+}
+.blog-content picture img {
+	width: 100%;
+	height: auto;
+}
+
+/* Wide tables scroll within their own box instead of stretching the page */
+.blog-content table {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
 /* Mobile: everything uses full available width */
 @media (max-width: 640px) {
 	.blog-content p:has(> img:only-child),
 	.blog-content p:has(> svg:only-child),
+	.blog-content p:has(> picture:only-child),
 	.blog-content img,
-	.blog-content svg {
+	.blog-content svg,
+	.blog-content picture {
 		max-width: 100%;
 	}
 }

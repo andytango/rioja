@@ -4,7 +4,8 @@ import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
 	const posts = await getCollection('blog', ({ data }) => {
-		return data.draft !== true;
+		// Drafts render in dev so they can be previewed, but never in a prod build.
+		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 
 	return rss({

@@ -10,4 +10,10 @@ export default defineConfig({
 		prefetchAll: true,
 		defaultStrategy: 'load',
 	},
+	vite: {
+		server: {
+			// Allow the dev preview to be reached through the tunnel host.
+			allowedHosts: ['blog-next.rioja.io'],
+		},
+	},
 });
