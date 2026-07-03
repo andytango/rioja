@@ -133,6 +133,6 @@ A month is not long, but once the foundations were right, the roadmap wrote itse
 
 ## Where this goes next
 
-That is why Agent Control Plane exists. The bet is that as coding collapses into a commodity, the lasting value moves to the layer that directs the work, and that this layer should be device-independent, durable, asynchronous, and mine to steer. It is built from first principles on a small set of invariants I committed to early, starting from the chat view rather than retrofitting an IDE.
+The bet is that as coding collapses into a commodity, the lasting value moves to the layer that directs the work, and that this layer should be device-independent, durable, asynchronous, and mine to steer. It is built from first principles on a small set of invariants I committed to early, starting from the chat view rather than retrofitting an IDE.
 
 The next two posts follow the two strands of what happened after the naive first version met daily use. The second is about features: how I found the edges of a purely agent-driven experience, where a plain chat transcript turned out to be the wrong surface, and added the smallest targeted tools to fix each one. The third is about performance: how a deliberately simple pipeline behaved as the session history filled up, and how benchmarking, rather than guesswork, decided what to optimise. In both cases the method was the same, and it is the method I trust most: start simple, watch closely, and let the evidence tell you where to spend.
