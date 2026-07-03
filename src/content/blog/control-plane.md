@@ -116,7 +116,7 @@ And the commitment that matters most for the rest of this series: **build delibe
 
 This is just lean, iterative development: a skateboard before a motorcycle before a car, where each stage is a usable whole rather than a half-finished chassis. It works because the next step on the roadmap only truly reveals itself once the basic features are built and tested. You cannot plan it in the abstract; you have to use the thing. It was liberating to organise development around that practical reality rather than around marketing claims, vision boards, and investor decks.
 
-That approach is not universal, though: it is calibrated to how much it costs to be wrong here. Agent Control Plane is a single-operator tool I can roll back in seconds and whose every defect I see at once, so shipping something naive is cheap and easily undone. On a client's production system, with real users, long deployment cycles, and a wide blast radius, the same instinct would be reckless; there the rigour belongs up front. The right amount of rigour tracks the cost of being wrong, and that is a topic of its own, one I will come back to.
+That approach is not universal, though: it is calibrated to how much it costs to be wrong here. Agent Control Plane is a single-operator tool I can roll back in seconds and whose every defect I see at once, so shipping something naive is cheap and easily undone. On a client's production system, with real users, long deployment cycles, and a wide blast radius, the same instinct would be reckless, and the rigour has to come first instead. How much rigour a piece of work needs depends on how costly a mistake would be, which I will come back to.
 
 ## A development timeline
 
