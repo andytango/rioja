@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../components/Layout.astro";
 import BackLink from "../../components/BackLink.astro";
+import Lightbox from "../../components/Lightbox.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog", ({ data }) => {
@@ -90,5 +91,6 @@ const { Content } = await post.render();
             <BackLink href="/blog" text="Blog" />
         </div>
     </main>
+    <Lightbox />
 </Layout>
 

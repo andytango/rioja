@@ -1,0 +1,87 @@
+---
+// Lightbox: click or press Enter/Space on an image in a blog post to view it enlarged.
+// Uses the native <dialog> (showModal) for the top layer, focus trapping and Esc.
+---
+
+<dialog id="lightbox" class="lightbox" aria-label="Enlarged image">
+  <button type="button" class="lightbox-close" aria-label="Close enlarged image">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+</dialog>
+
+<script>
+  const dialog = document.getElementById("lightbox") as HTMLDialogElement | null;
+  const full = dialog?.querySelector<HTMLImageElement>(".lightbox-img");
+  const caption = dialog?.querySelector<HTMLElement>(".lightbox-caption");
+  let opener: HTMLImageElement | null = null;
+
+  // Theme-variant screenshots hide the inactive image and give the dark one an empty alt;
+  // borrow the light variant's alt so every trigger has a label and caption.
+  function altFor(img: HTMLImageElement) {
+    if (img.alt) return img.alt;
+    return img.closest(".shot")?.querySelector<HTMLImageElement>("img[alt]:not([alt=''])")?.alt ?? "";
+  }
+
+  function open(img: HTMLImageElement) {
+    if (!dialog || !full || !caption) return;
+    const alt = altFor(img);
+    opener = img;
+    // currentSrc: whichever <picture> source is showing (portrait or landscape diagram)
+    full.src = img.currentSrc || img.src;
+    // Vector diagrams have no useful intrinsic size; scale them to fit using the inline aspect ratio
+    full.style.setProperty("--lightbox-ratio", String(img.offsetWidth / img.offsetHeight || 1));
+    full.alt = alt;
+    caption.textContent = alt;
+    caption.hidden = !alt;
+    dialog.showModal();
+  }
+
+  if (dialog && full && caption) {
+    document.querySelectorAll<HTMLImageElement>(".blog-content img").forEach((img) => {
+      if (img.closest("a, button") || img.hasAttribute("data-no-lightbox")) return;
+      const alt = altFor(img);
+      img.classList.add("lightbox-trigger");
+      img.removeAttribute("aria-hidden");
+      img.setAttribute("role", "button");
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("aria-haspopup", "dialog");
+      img.setAttribute("aria-label", alt ? `Enlarge image: ${alt}` : "Enlarge image");
+      img.addEventListener("click", () => open(img));
+      // Native button timing: Enter fires on keydown, Space on keyup (opening on Space
+      // keydown would let its keyup activate the close button and shut the dialog at once)
+      img.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          open(img);
+        } else if (e.key === " ") {
+          e.preventDefault();
+        }
+      });
+      img.addEventListener("keyup", (e) => {
+        if (e.key === " ") open(img);
+      });
+    });
+
+    // Reserve room for the caption so the image and caption together fit in 90vh
+    new ResizeObserver(() => {
+      dialog.style.setProperty("--lightbox-caption-h", `${caption.offsetHeight}px`);
+    }).observe(caption);
+
+    // Click anywhere (backdrop, image, close button) closes; the caption stays selectable
+    dialog.addEventListener("click", (e) => {
+      if ((e.target as Element).closest(".lightbox-caption")) return;
+      dialog.close();
+    });
+
+    dialog.addEventListener("close", () => {
+      opener?.focus({ preventScroll: true });
+      opener = null;
+    });
+  }
+</script>

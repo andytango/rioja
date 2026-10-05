@@ -12,7 +12,8 @@ body {
 }
 
 /* Invert SVG diagrams in dark mode so they remain readable */
-:root.dark .blog-content img[src$=".svg"] {
+:root.dark .blog-content img[src$=".svg"],
+:root.dark .lightbox-img[src$=".svg"] {
 	filter: invert(1) hue-rotate(180deg);
 }
 
@@ -147,6 +148,22 @@ body {
 }
 .shot-pair .shot { margin: 0; }
 
+/* One phone beside one desktop window (stacks on narrow screens) */
+.shot-pair-mixed {
+	flex-wrap: nowrap;
+	align-items: flex-start;
+	max-width: 56rem; /* 896px */
+}
+.shot-pair-mixed .shot-phone { flex: 0 1 30%; }
+.shot-pair-mixed .shot-desktop { flex: 1 1 0; min-width: 0; }
+@media (max-width: 640px) {
+	.shot-pair-mixed {
+		flex-direction: column;
+		align-items: center;
+	}
+	.shot-pair-mixed .shot-desktop { flex: none; }
+}
+
 /* Per-screenshot light/dark toggle */
 .shot-toggle {
 	position: absolute;
@@ -180,6 +197,126 @@ body {
 	max-width: 100%;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
+}
+
+/* ---- Lightbox: enlarged view of blog post images (see Lightbox.astro) ---- */
+.blog-content img.lightbox-trigger {
+	cursor: zoom-in;
+}
+.blog-content img.lightbox-trigger:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 4px;
+	border-radius: 2px;
+}
+
+.lightbox {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #ffedd5; /* orange-100: the backdrop is dark in both themes */
+	overflow: auto;
+	cursor: zoom-out;
+}
+.lightbox[open] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.lightbox::backdrop {
+	background: rgba(41, 16, 2, 0.94); /* warm amber-950 tint */
+	backdrop-filter: blur(4px);
+}
+:root.dark .lightbox::backdrop {
+	background: rgba(12, 10, 9, 0.95); /* stone-950 */
+}
+html:has(.lightbox[open]) {
+	overflow: hidden;
+}
+
+.lightbox-figure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	max-width: 95vw;
+}
+.lightbox-img {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 95vw;
+	/* Image and caption share 90vh; Lightbox.astro measures the caption */
+	max-height: calc(90vh - var(--lightbox-caption-h, 0px));
+	max-height: calc(90dvh - var(--lightbox-caption-h, 0px));
+	object-fit: contain;
+	border-radius: 4px;
+}
+/* Transparent SVG diagrams sit on the page colour, as they do inline */
+.lightbox-img[src$=".svg"] {
+	--lightbox-pad: clamp(0.75rem, 3vw, 2rem);
+	width: min(95vw, calc((90dvh - var(--lightbox-caption-h, 0px) - 2 * var(--lightbox-pad)) * var(--lightbox-ratio, 1) + 2 * var(--lightbox-pad)));
+	padding: var(--lightbox-pad);
+	background: #ffedd5; /* orange-100 */
+}
+/* Dark mode inverts the diagram, matching the inline rule; this background
+   inverts to stone-900 (#1c1917) under the same filter */
+:root.dark .lightbox-img[src$=".svg"] {
+	background: #e8e5e3;
+}
+.lightbox-caption {
+	max-width: 42rem;
+	padding-top: 0.75rem;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	text-align: center;
+	opacity: 0.85;
+	cursor: auto;
+}
+.lightbox-close {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 9999px;
+	border: 1px solid rgba(255, 237, 213, 0.25);
+	background: rgba(28, 25, 23, 0.6);
+	color: inherit;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+.lightbox-close:hover {
+	background: rgba(28, 25, 23, 0.9);
+}
+.lightbox-close:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.lightbox[open] .lightbox-figure {
+		animation: lightbox-in 0.18s ease-out;
+	}
+	.lightbox[open]::backdrop {
+		animation: lightbox-fade 0.18s ease-out;
+	}
+}
+@keyframes lightbox-in {
+	from { opacity: 0; transform: scale(0.97); }
+}
+@keyframes lightbox-fade {
+	from { opacity: 0; }
 }
 
 /* Mobile: everything uses full available width */
